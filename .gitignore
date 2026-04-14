@@ -34,3 +34,9 @@ yarn-error.log*
 # OS
 .DS_Store
 Thumbs.db
+
+# Archive files
+*.rar
+*.zip
+*.7z
+*.tar.gz
