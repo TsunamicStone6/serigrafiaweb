@@ -5,8 +5,16 @@
  */
 
 import React from 'react';
+import { FiInstagram, FiFacebook, FiTwitter, FiLinkedin } from 'react-icons/fi';
 import { Container } from '@/components/common/Container';
 import { siteConfig } from '@/config/site.config';
+
+const socialIconMap: Record<string, React.ReactNode> = {
+  instagram: <FiInstagram className="w-6 h-6" />,
+  facebook: <FiFacebook className="w-6 h-6" />,
+  twitter: <FiTwitter className="w-6 h-6" />,
+  linkedin: <FiLinkedin className="w-6 h-6" />,
+};
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -49,9 +57,9 @@ export function Footer() {
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-yellow-400 transition-colors font-black text-lg capitalize"
+                  className="text-gray-400 hover:text-yellow-400 transition-colors hover:scale-110 transform duration-200"
                 >
-                  {platform.charAt(0).toUpperCase()}
+                  {socialIconMap[platform as keyof typeof socialIconMap] || null}
                 </a>
               ))}
             </div>
