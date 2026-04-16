@@ -66,9 +66,9 @@ export function Services() {
 
         {/* CTA Section */}
         <div className="bg-gradient-to-r from-red-600 to-red-700 border-2 border-red-600 p-12 text-center">
-          <h3 className="text-3xl md:text-4xl font-black text-white mb-4 uppercase tracking-tight">Empecemos tu proyecto</h3>
+          <h3 className="text-3xl md:text-4xl font-black text-white mb-4 uppercase tracking-tight">Let's start your project</h3>
           <p className="text-xl text-red-50 mb-8 font-semibold">
-            Cotiza, diseña, recibe. Todo en una conversación.
+            Quote, design, deliver. All in one conversation.
           </p>
           <a
             href={`https://wa.me/${siteConfig.business.whatsapp.replace(/\D/g, '')}`}
@@ -76,7 +76,7 @@ export function Services() {
             rel="noopener noreferrer"
             className="inline-block px-10 py-4 bg-white hover:bg-gray-100 text-black font-black text-lg uppercase tracking-widest border-2 border-white transform hover:scale-105 active:scale-95 transition-all"
           >
-            Cotizar ahora
+            Get quote now
           </a>
         </div>
       </Container>

@@ -23,7 +23,7 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-2xl font-black mb-4 uppercase tracking-tight">Contacto</h3>
+            <h3 className="text-2xl font-black mb-4 uppercase tracking-tight">Contact</h3>
             <ul className="space-y-3 text-gray-400 text-sm font-medium">
               <li>
                 <a href={`tel:${siteConfig.business.phone}`} className="hover:text-yellow-400 transition-colors">
@@ -41,7 +41,7 @@ export function Footer() {
 
           {/* Social Media */}
           <div>
-            <h3 className="text-2xl font-black mb-4 uppercase tracking-tight">Síguenos</h3>
+            <h3 className="text-2xl font-black mb-4 uppercase tracking-tight">Follow us</h3>
             <div className="flex gap-6">
               {Object.entries(siteConfig.social).map(([platform, url]) => (
                 <a

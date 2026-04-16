@@ -18,8 +18,13 @@ export function Header() {
     <header className="sticky top-0 z-40 bg-black border-b-2 border-yellow-400">
       <Container className="flex items-center justify-between py-4">
         {/* Logo */}
-        <div className="flex-shrink-0">
-          <h1 className="text-3xl font-black text-white tracking-tighter uppercase">{siteConfig.brand.name}</h1>
+        <div className="flex items-center gap-4 flex-shrink-0">
+          <img
+            src={siteConfig.brand.logo}
+            alt={siteConfig.brand.name}
+            className="w-20 h-20 drop-shadow-lg"
+          />
+          <h1 className="text-2xl font-black text-white tracking-tighter uppercase">{siteConfig.brand.name}</h1>
         </div>
 
         {/* Desktop Navigation */}
@@ -42,7 +47,7 @@ export function Header() {
           rel="noopener noreferrer"
           className="hidden md:block px-5 py-3 bg-yellow-400 text-black font-black hover:bg-yellow-300 transition-colors uppercase text-sm tracking-widest border-2 border-yellow-400"
         >
-          Contactar
+          Contact
         </a>
 
         {/* Mobile Menu Button */}

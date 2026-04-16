@@ -8,13 +8,13 @@ export const siteConfig = {
   brand: {
     name: 'Calacas Prints',
     description: 'Screen printing and custom apparel',
-    logo: '/logo.svg',
+    logo: '/icons/logo.webp',
     favicon: '/favicon.ico',
   },
 
   // Business information
   business: {
-    name: 'CALACAS PRINTS',
+    name: 'CALACAS',
     tagline: 'Print what defines your brand',
     description: 'Professional screen printing on tees, hoodies, and accessories. Real quality, fast production.',
     address: '456 Industrial Street, Commercial Zone',
