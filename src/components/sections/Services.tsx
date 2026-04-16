@@ -18,7 +18,7 @@ const iconMap: Record<string, React.ReactNode> = {
 
 export function Services() {
   return (
-    <section id="services" className="py-24 bg-black">
+    <section id="services" className="py-24 bg-gradient-to-b from-gray-950 via-black to-gray-950">
       <Container>
         {/* Header */}
         <div className="text-center mb-16">

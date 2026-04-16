@@ -12,7 +12,7 @@ import { siteConfig } from '@/config/site.config';
 
 export function Contact() {
   return (
-    <section id="contact" className="py-24 bg-black border-t-4 border-red-600">
+    <section id="contact" className="py-24 bg-gradient-to-b from-gray-950 via-black to-black border-t-4 border-red-600">
       <Container>
         {/* Header */}
         <div className="text-center mb-16">

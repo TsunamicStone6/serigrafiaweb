@@ -16,6 +16,29 @@ body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: #f3f4f6;
   background-color: #000000;
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.01) 50%, rgba(0, 0, 0, 0.05) 100%);
+  background-size: 50px 50px, 100% 100%;
+  background-position: 0 0, 0 0;
+  background-attachment: fixed;
+}
+
+/* Subtle depth overlay for main content */
+main {
+  position: relative;
+}
+
+main::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Calacas Prints Brand Defaults */
@@ -35,18 +58,28 @@ button {
   transition: all 0.3s ease;
 }
 
+/* Section gradient transitions */
+section {
+  position: relative;
+  background-blend-mode: overlay;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #1a1a1a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #dc2626;
   border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b91c1c;
 }
 
 ::-webkit-scrollbar-thumb:hover {

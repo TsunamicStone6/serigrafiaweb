@@ -24,7 +24,7 @@ interface SplitEntryProps {
 
 export function SplitEntry({ customizePath, buyPath }: SplitEntryProps) {
   return (
-    <section className="py-24 bg-black">
+    <section className="py-24 bg-gradient-to-b from-black via-black to-gray-950">
       <Container>
         {/* Section Header - Bold Typography */}
         <div className="text-center mb-20">

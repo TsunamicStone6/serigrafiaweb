@@ -12,7 +12,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="bg-black text-white py-24 md:py-40 border-b-4 border-red-600"
+      className="bg-gradient-to-b from-black via-black to-gray-950 text-white py-24 md:py-40 border-b-4 border-red-600"
     >
       <Container>
         <div className="text-center max-w-4xl mx-auto">
