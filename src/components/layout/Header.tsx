@@ -8,6 +8,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { Container } from '@/components/common/Container';
 import { siteConfig } from '@/config/site.config';
@@ -20,10 +21,14 @@ export function Header() {
       <Container className="flex items-center justify-between py-5">
         {/* Logo - Enhanced Prominence */}
         <div className="flex items-center gap-4 flex-shrink-0 group hover:opacity-90 transition-opacity duration-200">
-          <img
+          <Image
             src={siteConfig.brand.logo}
             alt={siteConfig.brand.name}
-            className="w-24 h-24 drop-shadow-lg group-hover:drop-shadow-xl transition-all duration-200"
+            width={96}
+            height={96}
+            className="drop-shadow-lg group-hover:drop-shadow-xl transition-all duration-200"
+            priority
+            quality={85}
           />
           <h1 className="text-3xl font-black text-white tracking-tightest uppercase group-hover:text-red-600 transition-colors duration-200">{siteConfig.brand.name}</h1>
         </div>

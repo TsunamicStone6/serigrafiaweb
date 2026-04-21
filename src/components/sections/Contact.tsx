@@ -19,7 +19,7 @@ export function Contact() {
           <h2 className="text-5xl md:text-6xl font-black text-white mb-4 uppercase tracking-tight">Get in touch</h2>
           <div className="w-16 h-1 bg-red-600 mx-auto mb-6" />
           <p className="text-xl text-gray-300 max-w-2xl mx-auto font-semibold">
-            Let's turn your vision into epic prints
+            Let&apos;s turn your vision into epic prints
           </p>
         </div>
 

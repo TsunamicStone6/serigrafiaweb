@@ -66,7 +66,7 @@ export function Services() {
 
         {/* CTA Section */}
         <div className="bg-gradient-to-r from-red-600 to-red-700 border-2 border-red-600 p-12 text-center">
-          <h3 className="text-3xl md:text-4xl font-black text-white mb-4 uppercase tracking-tight">Let's start your project</h3>
+          <h3 className="text-3xl md:text-4xl font-black text-white mb-4 uppercase tracking-tight">Let&apos;s start your project</h3>
           <p className="text-xl text-red-50 mb-8 font-semibold">
             Quote, design, deliver. All in one conversation.
           </p>

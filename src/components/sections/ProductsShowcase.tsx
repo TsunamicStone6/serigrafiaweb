@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import Image from 'next/image';
 import { Container } from '@/components/common/Container';
 import { siteConfig } from '@/config/site.config';
 
@@ -45,10 +46,15 @@ export function ProductsShowcase() {
                 <div className="absolute inset-0 bg-gradient-to-br from-gray-800/50 to-black/50" />
                 
                 {/* Image with Enhanced Effects */}
-                <img
+                <Image
                   src={item.image}
                   alt={item.title}
-                  className="relative w-full h-full object-cover group-hover:scale-125 transition-transform duration-700 brightness-90 group-hover:brightness-100"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="relative object-cover group-hover:scale-110 transition-transform duration-500 brightness-90 group-hover:brightness-100"
+                  loading="lazy"
+                  quality={75}
+                  placeholder="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Crect fill='%23222'/%3E%3C/svg%3E"
                 />
                 
                 {/* Multi-layer Hover Overlay */}

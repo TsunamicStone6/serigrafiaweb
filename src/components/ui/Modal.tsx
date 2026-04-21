@@ -7,7 +7,8 @@
 
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 
 interface ModalProps {
@@ -31,6 +32,18 @@ export function Modal({
   currentIndex,
   total,
 }: ModalProps) {
+  const [imageSize, setImageSize] = useState({ width: 800, height: 600 });
+
+  useEffect(() => {
+    if (!isOpen) return;
+    
+    const img = new window.Image();
+    img.onload = () => {
+      setImageSize({ width: img.naturalWidth, height: img.naturalHeight });
+    };
+    img.src = image;
+  }, [image, isOpen]);
+
   if (!isOpen) return null;
 
   return (
@@ -49,7 +62,18 @@ export function Modal({
         </button>
 
         {/* Image */}
-        <img src={image} alt={title} className="h-auto max-h-[70vh] w-auto" />
+        <div className="relative w-full h-auto max-h-[70vh] flex items-center justify-center bg-black">
+          <Image
+            src={image}
+            alt={title}
+            width={imageSize.width}
+            height={imageSize.height}
+            priority={false}
+            quality={85}
+            className="h-auto max-h-[70vh] w-auto object-contain"
+            sizes="(max-width: 768px) 90vw, 80vw"
+          />
+        </div>
 
         {/* Navigation and Info */}
         <div className="bg-black border-t-4 border-red-600 p-6 flex items-center justify-between gap-4">

@@ -4,13 +4,23 @@
  * Principle: Single Responsibility - page composition only
  */
 
+import dynamic from 'next/dynamic';
 import { Edit3, ShoppingCart } from 'lucide-react';
 import { Hero } from '@/components/sections/Hero';
 import { SplitEntry } from '@/components/sections/SplitEntry';
-import { Services } from '@/components/sections/Services';
-import { ProductsShowcase } from '@/components/sections/ProductsShowcase';
 import { Contact } from '@/components/sections/Contact';
 import { siteConfig } from '@/config/site.config';
+
+// Lazy load heavy components
+const Services = dynamic(() => import('@/components/sections/Services').then(mod => ({ default: mod.Services })), {
+  ssr: true,
+  loading: () => <div className="min-h-screen bg-black" />,
+});
+
+const ProductsShowcase = dynamic(() => import('@/components/sections/ProductsShowcase').then(mod => ({ default: mod.ProductsShowcase })), {
+  ssr: true,
+  loading: () => <div className="min-h-screen bg-black" />,
+});
 
 export default function Home() {
   return (

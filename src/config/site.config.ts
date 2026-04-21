@@ -17,10 +17,10 @@ export const siteConfig = {
     name: 'CALACAS',
     tagline: 'Print what defines your brand',
     description: 'Professional screen printing on tees, hoodies, and accessories. Real quality, fast production.',
-    address: '456 Industrial Street, Commercial Zone',
-    phone: '+1 (555) 987-6543',
-    email: 'hello@calacasprints.com',
-    whatsapp: '+1 (555) 987-6543',
+    address: '3156 22nd Street San Francisco California 94110',
+    phone: '+1 (415) 763-2988',
+    email: 'calacassp@gmail.com',
+    whatsapp: '+1 (415) 763-2988',
     hours: 'Monday - Friday: 9:00 AM - 6:00 PM',
   },
 
@@ -93,7 +93,7 @@ export const siteConfig = {
       description: 'Screen printing on tees, hoodies, and more. Quality that lasts.',
       icon: 'apparel',
       benefits: [
-        'Production: 5-10 days',
+        'Production: 10-14 days',
         'Resistant premium inks',
         'From 10 units, no minimums',
       ],

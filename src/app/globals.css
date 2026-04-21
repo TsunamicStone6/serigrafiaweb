@@ -17,28 +17,14 @@ body {
   color: #f3f4f6;
   background-color: #000000;
   background-image: 
-    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
     linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.01) 50%, rgba(0, 0, 0, 0.05) 100%);
-  background-size: 50px 50px, 100% 100%;
-  background-position: 0 0, 0 0;
-  background-attachment: fixed;
+  background-size: 100% 100%;
+  background-position: 0 0;
 }
 
 /* Subtle depth overlay for main content */
 main {
   position: relative;
-}
-
-main::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: 0;
 }
 
 /* Calacas Prints Brand Defaults */
