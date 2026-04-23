@@ -1,7 +1,7 @@
 /**
  * ProductsShowcase Section
  * Responsibility: Display products with direct contact CTA
- * Principle: Single Responsibility - products showcase with WhatsApp integration
+ * Principle: Single Responsibility - products showcase with SMS integration
  * Design: Premium products display with hover overlays and strong visuals
  */
 
@@ -11,11 +11,11 @@ import { Container } from '@/components/common/Container';
 import { siteConfig } from '@/config/site.config';
 
 export function ProductsShowcase() {
-  const getWhatsAppLink = (productTitle: string) => {
-    const message = `Hi, I'm interested in the product: ${productTitle}. Can you send me more information?`;
+  const getSmsLink = (productTitle: string) => {
+    const message = `Hi, I'm interested in the ${productTitle}. Can you send me more information?`;
     const encodedMessage = encodeURIComponent(message);
-    const whatsappNumber = siteConfig.business.whatsapp.replace(/\D/g, '');
-    return `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    const phoneNumber = siteConfig.business.phone?.replace(/\D/g, '') || '';
+    return `sms:${phoneNumber}?body=${encodedMessage}`;
   };
 
   return (
@@ -31,17 +31,17 @@ export function ProductsShowcase() {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {siteConfig.portfolio.map((item) => (
             <div
               key={item.id}
-              className="group relative overflow-hidden bg-gradient-to-br from-gray-800 to-black border-2 border-gray-700 hover:border-red-600 transition-all duration-300 flex flex-col h-full hover:shadow-2xl hover:shadow-red-600/40"
+              className="group relative overflow-hidden rounded-md bg-gradient-to-br from-gray-800 to-black border-2 border-gray-700 hover:border-red-600 transition-all duration-300 flex flex-col h-full hover:shadow-2xl hover:shadow-red-600/40"
             >
               {/* Premium Border Accent */}
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-600 via-red-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
               {/* Image Container with Enhanced Overlay */}
-              <div className="relative overflow-hidden bg-gradient-to-br from-gray-900 to-black flex-1 flex items-center justify-center min-h-80">
+              <div className="relative overflow-hidden bg-gradient-to-br from-gray-900 to-black flex-1 flex items-center justify-center min-h-64 sm:min-h-80">
                 {/* Base Background */}
                 <div className="absolute inset-0 bg-gradient-to-br from-gray-800/50 to-black/50" />
                 
@@ -83,15 +83,13 @@ export function ProductsShowcase() {
                   {item.description}
                 </p>
 
-                {/* WhatsApp CTA Button - Enhanced */}
+                {/* SMS CTA Button - Enhanced */}
                 <a
-                  href={getWhatsAppLink(item.title)}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={getSmsLink(item.title)}
                   className="w-full block"
                 >
                   <button className="w-full px-4 py-3 bg-red-600 hover:bg-red-500 text-white font-black text-xs uppercase tracking-widest transition-all transform hover:scale-105 active:scale-95 border-2 border-red-600 hover:border-red-400 shadow-lg shadow-red-600/50 group-hover:shadow-red-600/80">
-                    Ask on WhatsApp
+                    Send SMS
                   </button>
                 </a>
               </div>

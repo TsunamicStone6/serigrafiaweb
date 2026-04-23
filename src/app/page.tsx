@@ -7,6 +7,7 @@
 import dynamic from 'next/dynamic';
 import { Edit3, ShoppingCart } from 'lucide-react';
 import { Hero } from '@/components/sections/Hero';
+import { About } from '@/components/sections/About';
 import { SplitEntry } from '@/components/sections/SplitEntry';
 import { Contact } from '@/components/sections/Contact';
 import { siteConfig } from '@/config/site.config';
@@ -23,6 +24,8 @@ const ProductsShowcase = dynamic(() => import('@/components/sections/ProductsSho
 });
 
 export default function Home() {
+  const phoneNumber = siteConfig.business.phone?.replace(/\D/g, '') || '';
+
   return (
     <>
       <Hero />
@@ -32,7 +35,7 @@ export default function Home() {
           description:
             'Create your own designs with our expert team. Unique and exclusive design for your brand.',
           buttonText: 'Get a quote',
-          buttonHref: `https://wa.me/${siteConfig.business.whatsapp.replace(/\D/g, '')}`,
+          buttonHref: `sms:${phoneNumber}?body=${encodeURIComponent("Hi, I'm interested in customizing a design for my brand.")}`,
           icon: <Edit3 className="w-16 h-16" />,
         }}
         buyPath={{
@@ -46,6 +49,7 @@ export default function Home() {
       />
       <Services />
       <ProductsShowcase />
+      <About />
       <Contact />
     </>
   );

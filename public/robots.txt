@@ -1,0 +1,21 @@
+# Calacas Prints - Robots.txt
+# Allow search engines to crawl the site
+
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /private
+Disallow: /*.json$
+
+# Specific crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap location
+Sitemap: https://calacasprints.com/sitemap.xml
+
+# Crawl delay (optional - 1 second)
+Crawl-delay: 1

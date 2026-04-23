@@ -15,22 +15,23 @@ import { siteConfig } from '@/config/site.config';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const phoneNumber = siteConfig.business.phone?.replace(/\D/g, '') || '';
 
   return (
     <header className="sticky top-0 z-40 bg-gradient-to-b from-black to-gray-950 border-b-4 border-red-600">
       <Container className="flex items-center justify-between py-5">
         {/* Logo - Enhanced Prominence */}
-        <div className="flex items-center gap-4 flex-shrink-0 group hover:opacity-90 transition-opacity duration-200">
+        <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0 group hover:opacity-90 transition-opacity duration-200">
           <Image
             src={siteConfig.brand.logo}
             alt={siteConfig.brand.name}
-            width={96}
-            height={96}
-            className="drop-shadow-lg group-hover:drop-shadow-xl transition-all duration-200"
+            width={128}
+            height={128}
+            className="w-16 h-16 sm:w-24 md:w-28 drop-shadow-lg group-hover:drop-shadow-xl transition-all duration-200"
             priority
-            quality={85}
+            quality={100}
           />
-          <h1 className="text-3xl font-black text-white tracking-tightest uppercase group-hover:text-red-600 transition-colors duration-200">{siteConfig.brand.name}</h1>
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-white tracking-tightest uppercase group-hover:text-red-600 transition-colors duration-200">CALACAS</h1>
         </div>
 
         {/* Desktop Navigation - Improved Typography */}
@@ -46,15 +47,7 @@ export function Header() {
           ))}
         </nav>
 
-        {/* CTA Button - Red Accent */}
-        <a
-          href={`https://wa.me/${siteConfig.business.whatsapp.replace(/\D/g, '')}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden md:block px-8 py-4 bg-red-600 text-white font-black hover:bg-red-500 transition-all transform hover:scale-105 active:scale-95 uppercase text-sm tracking-widest border-2 border-red-600"
-        >
-          Contact
-        </a>
+
 
         {/* Mobile Menu Button */}
         <button
@@ -80,9 +73,7 @@ export function Header() {
               </a>
             ))}
             <a
-              href={`https://wa.me/${siteConfig.business.whatsapp.replace(/\D/g, '')}`}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={`sms:${phoneNumber}?body=${encodeURIComponent("Hi, I'm interested in your screen printing services.")}`}
               className="block text-center px-8 py-4 bg-red-600 text-white font-black uppercase text-sm tracking-widest hover:bg-red-500 transition-all transform hover:scale-105 active:scale-95 border-2 border-red-600"
             >
               Contact

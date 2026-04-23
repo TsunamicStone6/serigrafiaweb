@@ -11,6 +11,8 @@ import { Container } from '@/components/common/Container';
 import { siteConfig } from '@/config/site.config';
 
 export function Contact() {
+  const phoneNumber = siteConfig.business.phone?.replace(/\D/g, '') || '';
+
   return (
     <section id="contact" className="py-24 bg-gradient-to-b from-gray-950 via-black to-black border-t-4 border-red-600">
       <Container>
@@ -27,7 +29,7 @@ export function Contact() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           {/* Phone */}
           <a href={`tel:${siteConfig.business.phone}`}>
-            <div className="bg-gradient-to-br from-gray-900 to-black border-3 border-gray-700 p-8 hover:border-red-600 transition-colors group">
+            <div className="rounded-md bg-gradient-to-br from-gray-900 to-black border-3 border-gray-700 p-6 sm:p-8 hover:border-red-600 transition-colors group">
               <Phone className="w-12 h-12 mb-4 text-red-600 group-hover:scale-110 transition-transform" />
               <h3 className="text-2xl font-black text-white mb-3 group-hover:text-red-600 transition-colors uppercase">Call</h3>
               <p className="text-red-600 font-black">{siteConfig.business.phone}</p>
@@ -36,19 +38,19 @@ export function Contact() {
 
           {/* Email */}
           <a href={`mailto:${siteConfig.business.email}`}>
-            <div className="bg-gradient-to-br from-gray-900 to-black border-3 border-gray-700 p-8 hover:border-red-600 transition-colors group">
+            <div className="rounded-md bg-gradient-to-br from-gray-900 to-black border-3 border-gray-700 p-6 sm:p-8 hover:border-red-600 transition-colors group">
               <Mail className="w-12 h-12 mb-4 text-red-600 group-hover:scale-110 transition-transform" />
               <h3 className="text-2xl font-black text-white mb-3 group-hover:text-red-600 transition-colors uppercase">Email</h3>
               <p className="text-red-600 font-black break-all text-sm">{siteConfig.business.email}</p>
             </div>
           </a>
 
-          {/* WhatsApp */}
-          <a href={`https://wa.me/${siteConfig.business.whatsapp.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer">
-            <div className="bg-gradient-to-br from-gray-900 to-black border-3 border-gray-700 p-8 hover:border-red-600 transition-colors group">
+          {/* SMS */}
+        <a href={`sms:${phoneNumber}?body=${encodeURIComponent("Hi, I'd like to know more about your screen printing services.")}`}>
+            <div className="rounded-md bg-gradient-to-br from-gray-900 to-black border-3 border-gray-700 p-6 sm:p-8 hover:border-red-600 transition-colors group">
               <MessageCircle className="w-12 h-12 mb-4 text-red-600 group-hover:scale-110 transition-transform" />
-              <h3 className="text-2xl font-black text-white mb-3 group-hover:text-red-600 transition-colors uppercase">WhatsApp</h3>
-              <p className="text-red-600 font-black">Send message</p>
+              <h3 className="text-2xl font-black text-white mb-3 group-hover:text-red-600 transition-colors uppercase">SMS</h3>
+              <p className="text-red-600 font-black">Send text</p>
             </div>
           </a>
         </div>
@@ -56,12 +58,10 @@ export function Contact() {
         {/* CTA */}
         <div className="text-center">
           <a
-            href={`https://wa.me/${siteConfig.business.whatsapp.replace(/\D/g, '')}`}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={`sms:${phoneNumber}?body=${encodeURIComponent("Hi, I'd like to know more about your screen printing services.")}`}
           >
-            <button className="px-12 py-5 bg-red-600 hover:bg-red-500 text-white font-black text-xl uppercase tracking-widest border-2 border-red-600 transform hover:scale-105 active:scale-95 transition-all">
-              Get a quote now
+            <button className="rounded-sm px-6 sm:px-12 py-4 sm:py-5 bg-red-600 hover:bg-red-500 text-white font-black text-lg sm:text-xl uppercase tracking-widest border-2 border-red-600 transform hover:scale-105 active:scale-95 transition-all">
+              Send us a text
             </button>
           </a>
         </div>

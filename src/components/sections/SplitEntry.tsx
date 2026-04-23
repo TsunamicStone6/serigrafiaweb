@@ -41,9 +41,9 @@ export function SplitEntry({ customizePath, buyPath }: SplitEntryProps) {
           {/* Customize Path - Urban Edge */}
           <div className="group relative">
             {/* Bold border and background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-red-600 to-red-900 rounded-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+            <div className="absolute inset-0 bg-gradient-to-br from-red-600 to-red-900 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
             
-            <div className="relative bg-gradient-to-br from-gray-900 to-black border-4 border-red-600 p-10 h-full flex flex-col group-hover:border-red-400 transition-colors duration-300">
+            <div className="relative rounded-md bg-gradient-to-br from-gray-900 to-black border-4 border-red-600 p-10 h-full flex flex-col group-hover:border-red-400 transition-colors duration-300">
               {/* Geometric Icon Container */}
               <div className="mb-8 text-red-600">
                 {customizePath.icon}
@@ -64,7 +64,7 @@ export function SplitEntry({ customizePath, buyPath }: SplitEntryProps) {
 
               {/* CTA Button - Bold Style */}
               <a href={customizePath.buttonHref} className="mt-8 block">
-                <button className="w-full bg-red-600 hover:bg-red-500 text-white text-lg font-black py-4 px-6 transition-all duration-300 transform hover:scale-105 active:scale-95 border-2 border-red-600 hover:border-red-500 uppercase tracking-widest">
+                <button className="rounded-sm w-full bg-red-600 hover:bg-red-500 text-white text-lg font-black py-4 px-6 transition-all duration-300 transform hover:scale-105 active:scale-95 border-2 border-red-600 hover:border-red-500 uppercase tracking-widest">
                   {customizePath.buttonText}
                 </button>
               </a>
@@ -74,9 +74,9 @@ export function SplitEntry({ customizePath, buyPath }: SplitEntryProps) {
           {/* Buy Path - Same as Customize Path */}
           <div className="group relative">
             {/* Bold border and background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-red-600 to-red-900 rounded-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+            <div className="absolute inset-0 bg-gradient-to-br from-red-600 to-red-900 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
             
-            <div className="relative bg-gradient-to-br from-gray-900 to-black border-4 border-red-600 p-10 h-full flex flex-col group-hover:border-red-400 transition-colors duration-300">
+            <div className="relative rounded-md bg-gradient-to-br from-gray-900 to-black border-4 border-red-600 p-10 h-full flex flex-col group-hover:border-red-400 transition-colors duration-300">
               {/* Geometric Icon Container */}
               <div className="mb-8 text-red-600">
                 {buyPath.icon}
@@ -97,7 +97,7 @@ export function SplitEntry({ customizePath, buyPath }: SplitEntryProps) {
 
               {/* CTA Button - Bold Style */}
               <a href={buyPath.buttonHref} className="mt-8 block">
-                <button className="w-full bg-red-600 hover:bg-red-500 text-white text-lg font-black py-4 px-6 transition-all duration-300 transform hover:scale-105 active:scale-95 border-2 border-red-600 hover:border-red-500 uppercase tracking-widest">
+                <button className="rounded-sm w-full bg-red-600 hover:bg-red-500 text-white text-lg font-black py-4 px-6 transition-all duration-300 transform hover:scale-105 active:scale-95 border-2 border-red-600 hover:border-red-500 uppercase tracking-widest">
                   {buyPath.buttonText}
                 </button>
               </a>

@@ -34,7 +34,7 @@ export function Button({
 }: ButtonProps) {
   return (
     <button
-      className={`inline-flex items-center justify-center font-black uppercase tracking-widest transition-all duration-300 transform hover:scale-105 active:scale-95 ${variantStyles[variant]} ${sizeStyles[size]} ${className}`}
+      className={`inline-flex items-center justify-center rounded-sm font-black uppercase tracking-widest transition-all duration-300 transform hover:scale-105 active:scale-95 ${variantStyles[variant]} ${sizeStyles[size]} ${className}`}
       {...props}
     >
       {children}

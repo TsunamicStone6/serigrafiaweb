@@ -17,6 +17,8 @@ const iconMap: Record<string, React.ReactNode> = {
 };
 
 export function Services() {
+  const phoneNumber = siteConfig.business.phone?.replace(/\D/g, '') || '';
+
   return (
     <section id="services" className="py-24 bg-gradient-to-b from-gray-950 via-black to-gray-950">
       <Container>
@@ -30,11 +32,11 @@ export function Services() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-16">
           {siteConfig.services.map((service, index) => {
             const iconKey = service.icon as keyof typeof iconMap;
             return (
-              <div key={index} className="bg-gradient-to-br from-gray-900 to-black border-2 border-gray-700 hover:border-red-600 transition-all duration-300 p-8 group">
+              <div key={index} className="rounded-md bg-gradient-to-br from-gray-900 to-black border-2 border-gray-700 hover:border-red-600 transition-all duration-300 p-5 sm:p-6 md:p-8 group">
                 {/* Icon */}
                 <div className="text-red-600 mb-6 group-hover:scale-110 transition-transform">
                   {iconMap[iconKey] || <Shirt className="w-10 h-10" />}
@@ -65,15 +67,13 @@ export function Services() {
         </div>
 
         {/* CTA Section */}
-        <div className="bg-gradient-to-r from-red-600 to-red-700 border-2 border-red-600 p-12 text-center">
-          <h3 className="text-3xl md:text-4xl font-black text-white mb-4 uppercase tracking-tight">Let&apos;s start your project</h3>
+        <div className="bg-gradient-to-r from-red-600 to-red-700 border-2 border-red-600 p-6 sm:p-8 md:p-12 text-center">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-4 uppercase tracking-tight">Let&apos;s start your project</h3>
           <p className="text-xl text-red-50 mb-8 font-semibold">
             Quote, design, deliver. All in one conversation.
           </p>
           <a
-            href={`https://wa.me/${siteConfig.business.whatsapp.replace(/\D/g, '')}`}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={`sms:${phoneNumber}?body=${encodeURIComponent('Hi, I\'m interested in starting a project with Calacas Prints. Can you help?')}`}
             className="inline-block px-10 py-4 bg-white hover:bg-gray-100 text-black font-black text-lg uppercase tracking-widest border-2 border-white transform hover:scale-105 active:scale-95 transition-all"
           >
             Get quote now

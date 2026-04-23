@@ -26,6 +26,19 @@ export interface NavItem {
 export interface ContactInfo {
   phone: string;
   email: string;
-  whatsapp: string;
   address: string;
+}
+
+export interface Stat {
+  label: string;
+  value: string;
+}
+
+export interface AboutSection {
+  title: string;
+  description: string;
+  story: string;
+  image: string;
+  founded: number;
+  stats: Stat[];
 }

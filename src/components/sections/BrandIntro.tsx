@@ -17,6 +17,8 @@ const iconMap: Record<string, React.ReactNode> = {
 };
 
 export function BrandIntro() {
+  const phoneNumber = siteConfig.business.phone?.replace(/\D/g, '') || '';
+
   return (
     <section id="about" className="py-24 bg-black">
       <Container>
@@ -71,9 +73,7 @@ export function BrandIntro() {
             Contáctanos hoy y recibe una cotización personalizada
           </p>
           <a
-            href={`https://wa.me/${siteConfig.business.whatsapp.replace(/\D/g, '')}`}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={`sms:${phoneNumber}?body=${encodeURIComponent("Hi, I'm interested in getting a quote for my project.")}`}
           >
             <button className="px-10 py-4 bg-yellow-400 hover:bg-yellow-300 text-black font-black text-lg uppercase tracking-widest border-3 border-yellow-400 transform hover:scale-105 active:scale-95 transition-all">
               Solicitar Cotización
