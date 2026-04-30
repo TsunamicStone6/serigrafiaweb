@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --red:        #C51D34;
+  --ink:        #0D0D0D;
+  --surface:    #161616;
+  --card:       #1C1C1C;
+  --gray:       #888888;
+  --muted:      #AAAAAA;
+  --light:      #F0F0F0;
+  --border:     rgba(255, 255, 255, 0.07);
+  --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--ink);
+  color: var(--light);
+  overflow-x: hidden;
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-black;
+  }
+  a {
+    @apply transition-colors duration-200;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar        { width: 8px; }
+::-webkit-scrollbar-track  { background: var(--ink); }
+::-webkit-scrollbar-thumb  { background: var(--red); }
+::-webkit-scrollbar-thumb:hover { background: #E0253D; }
+
+/* Section border utility */
+.section-border-top    { border-top:    1px solid var(--border); }
+.section-border-bottom { border-bottom: 1px solid var(--border); }
+
+/* Marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 22s linear infinite;
+}
+
+/* Placeholder stripe pattern */
+.stripe-bg {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 18px,
+    rgba(255,255,255,0.025) 18px,
+    rgba(255,255,255,0.025) 19px
+  );
+}
+
+/* Hover red-line top effect */
+.card-line-top {
+  position: relative;
+  overflow: hidden;
+}
+.card-line-top::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+  z-index: 1;
+}
+.card-line-top:hover::before {
+  transform: scaleX(1);
+}
+
+/* Hover red-line bottom effect */
+.card-line-bottom {
+  position: relative;
+  overflow: hidden;
+}
+.card-line-bottom::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+  z-index: 1;
+}
+.card-line-bottom:hover::before {
+  transform: scaleX(1);
+}
+
+/* Pulse dot */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.35; }
+}
+.pulse-dot {
+  width: 6px;
+  height: 6px;
+  background: #22c55e;
+  border-radius: 50%;
+  animation: pulse-dot 2s ease infinite;
+}
