@@ -51,12 +51,12 @@ export function ProductsShowcase() {
             >
               <Image
                 src={item.image}
-                alt={`Calacas Prints – Screen printing work`}
+                alt={`Calacas Prints – ${item.title} – Custom screen printing San Francisco`}
                 fill
                 sizes="(max-width:640px) 50vw, (max-width:1024px) 33vw, 25vw"
-                className="object-cover brightness-90 group-hover:brightness-100 group-hover:scale-105 transition-all duration-500"
+                className="object-contain p-3 brightness-90 group-hover:brightness-100 group-hover:scale-105 transition-all duration-500"
                 loading="lazy"
-                quality={80}
+                quality={85}
               />
               {/* Hover overlay */}
               <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/60 transition-all duration-300 flex items-center justify-center">
@@ -96,10 +96,10 @@ export function ProductsShowcase() {
           >
             <Image
               src={siteConfig.portfolio[selectedIndex].image}
-              alt="Full size image"
+              alt={`Calacas Prints – ${siteConfig.portfolio[selectedIndex].title} – Custom screen printing San Francisco`}
               width={800}
               height={1000}
-              className="object-contain w-full h-full max-h-[85vh]"
+              className="object-contain w-full h-full max-h-[85vh] drop-shadow-2xl"
               priority
             />
 

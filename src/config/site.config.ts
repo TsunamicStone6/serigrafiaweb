@@ -51,26 +51,24 @@ export const siteConfig = {
     { label: 'Contact', href: '#contact' },
   ],
 
-  // Portfolio — real client work
+  // Portfolio — real client work (transparent background images)
   portfolio: [
-    {
-      id: 1,
-      title: 'Work 1',
-      category: '',
-      image: '/images/portfolio/azulEdificio.webp',
-      description: '',
-    },
-    { id: 2, title: 'Work 2', category: '', image: '/images/portfolio/blacoEstampado.webp', description: '' },
-    { id: 3, title: 'Work 3', category: '', image: '/images/portfolio/blancoMinimalista.webp', description: '' },
-    { id: 4, title: 'Work 4', category: '', image: '/images/portfolio/edificioBlanco.webp', description: '' },
-    { id: 5, title: 'Work 5', category: '', image: '/images/portfolio/edificioRojo.webp', description: '' },
-    { id: 6, title: 'Work 6', category: '', image: '/images/portfolio/grisEstampado.webp', description: '' },
-    { id: 7, title: 'Work 7', category: '', image: '/images/portfolio/playeraBrady.webp', description: '' },
-    { id: 8,  title: 'Work 8',  category: '', image: '/images/portfolio/playeraNegra.webp',       description: '' },
-    { id: 9,  title: 'Work 9',  category: '', image: '/images/portfolio/playeraNegraedificio.webp', description: '' },
-    { id: 10, title: 'Work 10', category: '', image: '/images/portfolio/playeraRoja.webp',          description: '' },
-    { id: 11, title: 'Work 11', category: '', image: '/images/portfolio/playeraRojaconlogo.webp',   description: '' },
-    { id: 12, title: 'Work 12', category: '', image: '/images/portfolio/playeraRojaedificio.webp',  description: '' },
+    { id: 1,  title: 'Custom Screen Print Tee',           category: 'T-Shirts',    image: '/images/portfolio/calacas-screen-print-tee-01.webp', description: 'Custom screen printed t-shirt by Calacas Prints, San Francisco.' },
+    { id: 2,  title: 'Screen Printed T-Shirt',            category: 'T-Shirts',    image: '/images/portfolio/calacas-screen-print-tee-02.webp', description: 'High-quality screen print on premium tee, Mission District SF.' },
+    { id: 3,  title: 'Graphic Screen Print Tee',          category: 'T-Shirts',    image: '/images/portfolio/calacas-screen-print-tee-03.webp', description: 'Bold graphic screen printing on custom apparel.' },
+    { id: 4,  title: 'Custom Apparel Print',              category: 'Apparel',     image: '/images/portfolio/calacas-screen-print-tee-04.webp', description: 'Custom apparel with professional screen printing finish.' },
+    { id: 5,  title: 'Multi-Color Screen Print',          category: 'T-Shirts',    image: '/images/portfolio/calacas-screen-print-tee-05.webp', description: 'Multi-color screen print on custom t-shirt, SF Bay Area.' },
+    { id: 6,  title: 'Custom Design Print Tee',           category: 'T-Shirts',    image: '/images/portfolio/calacas-screen-print-tee-06.webp', description: 'Custom design screen printed by Calacas Prints.' },
+    { id: 7,  title: 'Screen Print Merchandise',          category: 'Merchandise', image: '/images/portfolio/calacas-screen-print-tee-07.webp', description: 'Professional screen printed merchandise for events and brands.' },
+    { id: 8,  title: 'Custom Brand T-Shirt',              category: 'T-Shirts',    image: '/images/portfolio/calacas-screen-print-tee-08.webp', description: 'Custom branded t-shirt with screen print by Calacas Prints.' },
+    { id: 9,  title: 'Screen Print Event Tee',            category: 'Events',      image: '/images/portfolio/calacas-screen-print-tee-09.webp', description: 'Screen printed event t-shirt, fast turnaround SF.' },
+    { id: 10, title: 'Custom Graphic Tee',                category: 'T-Shirts',    image: '/images/portfolio/calacas-screen-print-tee-10.webp', description: 'Custom graphic tee with sharp screen print by Calacas Prints.' },
+    { id: 11, title: 'Artisan Screen Print Apparel',      category: 'Apparel',     image: '/images/portfolio/calacas-screen-print-tee-11.webp', description: 'Artisan-quality screen print apparel, Mission District.' },
+    { id: 12, title: 'Screen Print Logo Tee',             category: 'T-Shirts',    image: '/images/portfolio/calacas-screen-print-tee-12.webp', description: 'Logo screen printed t-shirt for businesses and events.' },
+    { id: 13, title: 'Custom Screen Print Design',        category: 'T-Shirts',    image: '/images/portfolio/calacas-screen-print-tee-13.webp', description: 'Unique custom screen print design on premium apparel.' },
+    { id: 14, title: 'Screen Print Merch Tee',            category: 'Merchandise', image: '/images/portfolio/calacas-screen-print-tee-14.webp', description: 'Custom merch tee with screen printing, Bay Area.' },
+    { id: 15, title: 'Blue Custom Screen Print Tee',      category: 'T-Shirts',    image: '/images/portfolio/calacas-screen-print-blue-tee.webp', description: 'Blue custom screen printed t-shirt by Calacas Prints SF.' },
+    { id: 16, title: 'Gray Custom Screen Print Tee',      category: 'T-Shirts',    image: '/images/portfolio/calacas-screen-print-gray-tee.webp', description: 'Gray custom screen printed t-shirt, high-quality finish.' },
   ],
 
   // Services

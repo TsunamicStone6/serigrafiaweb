@@ -1,9 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export', // Static export for Hostinger shared hosting
-  turbopack: {
-    root: 'C:\\Users\\user\\Documents\\Claude\\Projects\\serigrafiaweb-main',
-  },
   images: {
     formats: ['image/avif', 'image/webp'],
     unoptimized: true, // Required for static export

@@ -1,5 +1,7 @@
 import { siteConfig } from '@/config/site.config';
 
+const BASE_URL = 'https://calacasprints.com';
+
 export function JsonLdScripts() {
   const localBusinessSchema = {
     '@context': 'https://schema.org',
@@ -88,6 +90,24 @@ export function JsonLdScripts() {
     ],
   };
 
+  const portfolioGallerySchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ImageGallery',
+    name: 'Calacas Prints – Screen Printing Portfolio',
+    description: 'Portfolio of custom screen printed t-shirts, hoodies, and apparel by Calacas Prints in San Francisco, CA.',
+    url: `${BASE_URL}/#products`,
+    image: siteConfig.portfolio.map((item) => ({
+      '@type': 'ImageObject',
+      contentUrl: `${BASE_URL}${item.image}`,
+      name: item.title,
+      description: item.description,
+      author: {
+        '@type': 'LocalBusiness',
+        name: siteConfig.business.name,
+      },
+    })),
+  };
+
   return (
     <>
       <script
@@ -106,6 +126,12 @@ export function JsonLdScripts() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(servicesSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(portfolioGallerySchema),
         }}
       />
     </>
