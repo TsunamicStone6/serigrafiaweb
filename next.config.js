@@ -12,6 +12,9 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   productionBrowserSourceMaps: false,
+  experimental: {
+    turbopack: true, // Faster, lighter compiler for dev mode
+  },
 };
 
 module.exports = nextConfig;
