@@ -1,20 +1,24 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // Static export for Hostinger shared hosting
+  // Modo Node.js (necesario para Sanity Studio embebido y ISR)
+  // output: 'export' removido — Hostinger Business soporta Node.js
   images: {
     formats: ['image/avif', 'image/webp'],
-    unoptimized: true, // Required for static export
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+        port: '',
+        pathname: '/images/**',
+      },
+    ],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 31536000, // 1 year
-    qualities: [75, 80, 85],
   },
   compress: true,
   poweredByHeader: false,
   productionBrowserSourceMaps: false,
-  experimental: {
-    turbopack: true, // Faster, lighter compiler for dev mode
-  },
-};
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig

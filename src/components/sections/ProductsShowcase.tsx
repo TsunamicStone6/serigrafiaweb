@@ -1,25 +1,45 @@
-'use client';
+'use client'
 
-import React, { useState } from 'react';
-import Image from 'next/image';
-import { siteConfig } from '@/config/site.config';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState } from 'react'
+import Image from 'next/image'
+import { X, ChevronLeft, ChevronRight } from 'lucide-react'
+import { urlForImage } from '@/sanity/image'
+import type { PortfolioItem } from '@/types/sanity'
 
-export function ProductsShowcase() {
-  const phoneNumber = siteConfig.business.phone?.replace(/\D/g, '') || '';
-  const smsLink = `sms:${phoneNumber}?body=${encodeURIComponent("Hi, I saw your work and I'm interested in a custom screen printing order.")}`;
-  
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+type ProductsShowcaseProps = {
+  portfolio: PortfolioItem[] | Array<{
+    _id: string
+    title: string
+    category: string
+    image?: any
+    imageUrl?: string
+    description: string
+    order: number
+  }>
+  phone: string
+}
+
+function getImageSrc(item: { image?: any; imageUrl?: string }): string {
+  if (item.image?.asset?._ref) {
+    return urlForImage(item.image).width(600).height(600).url()
+  }
+  return item.imageUrl || '/images/portfolio/calacas-screen-print-tee-01.webp'
+}
+
+export function ProductsShowcase({ portfolio, phone }: ProductsShowcaseProps) {
+  const phoneNumber = phone?.replace(/\D/g, '') || ''
+  const smsLink = `sms:${phoneNumber}?body=${encodeURIComponent("Hi, I saw your work and I'm interested in a custom screen printing order.")}`
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
 
   const handlePrevious = () => {
-    if (selectedIndex === null) return;
-    setSelectedIndex((selectedIndex - 1 + siteConfig.portfolio.length) % siteConfig.portfolio.length);
-  };
+    if (selectedIndex === null) return
+    setSelectedIndex((selectedIndex - 1 + portfolio.length) % portfolio.length)
+  }
 
   const handleNext = () => {
-    if (selectedIndex === null) return;
-    setSelectedIndex((selectedIndex + 1) % siteConfig.portfolio.length);
-  };
+    if (selectedIndex === null) return
+    setSelectedIndex((selectedIndex + 1) % portfolio.length)
+  }
 
   return (
     <section id="products" className="bg-ink py-16 md:py-24 border-y border-white/[0.07]">
@@ -43,14 +63,14 @@ export function ProductsShowcase() {
 
         {/* Gallery grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
-          {siteConfig.portfolio.map((item, index) => (
+          {portfolio.map((item, index) => (
             <button
-              key={item.id}
+              key={item._id}
               onClick={() => setSelectedIndex(index)}
               className="group relative bg-card overflow-hidden block aspect-square cursor-pointer border border-transparent hover:border-brand-red transition-colors"
             >
               <Image
-                src={item.image}
+                src={getImageSrc(item)}
                 alt={`Calacas Prints – ${item.title} – Custom screen printing San Francisco`}
                 fill
                 sizes="(max-width:640px) 50vw, (max-width:1024px) 33vw, 25vw"
@@ -58,7 +78,6 @@ export function ProductsShowcase() {
                 loading="lazy"
                 quality={85}
               />
-              {/* Hover overlay */}
               <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/60 transition-all duration-300 flex items-center justify-center">
                 <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-[10px] font-black text-white uppercase tracking-[0.2em] border border-white/60 px-4 py-2">
                   View →
@@ -68,7 +87,7 @@ export function ProductsShowcase() {
           ))}
         </div>
 
-        {/* Single CTA */}
+        {/* CTA */}
         <div className="mt-8 md:mt-10 flex flex-col md:flex-row items-center justify-between gap-4 border border-white/[0.07] bg-card px-6 md:px-10 py-6 md:py-7">
           <div>
             <p className="text-[15px] md:text-[17px] font-black uppercase text-brand-light">Like what you see?</p>
@@ -81,29 +100,27 @@ export function ProductsShowcase() {
             Get a quote ↗
           </a>
         </div>
-
       </div>
 
-      {/* Lightbox Modal */}
+      {/* Lightbox */}
       {selectedIndex !== null && (
-        <div 
+        <div
           className="fixed inset-0 bg-ink/95 z-50 flex items-center justify-center p-4 animate-in fade-in duration-200"
           onClick={() => setSelectedIndex(null)}
         >
-          <div 
+          <div
             className="relative max-w-[90vw] max-h-[90vh] flex items-center justify-center animate-in scale-95 w-full"
             onClick={(e) => e.stopPropagation()}
           >
             <Image
-              src={siteConfig.portfolio[selectedIndex].image}
-              alt={`Calacas Prints – ${siteConfig.portfolio[selectedIndex].title} – Custom screen printing San Francisco`}
+              src={getImageSrc(portfolio[selectedIndex])}
+              alt={`Calacas Prints – ${portfolio[selectedIndex].title}`}
               width={800}
               height={1000}
               className="object-contain w-full h-full max-h-[85vh] drop-shadow-2xl"
               priority
             />
 
-            {/* Left Arrow */}
             <button
               onClick={handlePrevious}
               className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-brand-red hover:bg-brand-hover transition-colors"
@@ -112,7 +129,6 @@ export function ProductsShowcase() {
               <ChevronLeft className="w-6 h-6 text-white" />
             </button>
 
-            {/* Right Arrow */}
             <button
               onClick={handleNext}
               className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-brand-red hover:bg-brand-hover transition-colors"
@@ -121,7 +137,6 @@ export function ProductsShowcase() {
               <ChevronRight className="w-6 h-6 text-white" />
             </button>
 
-            {/* Close Button */}
             <button
               onClick={() => setSelectedIndex(null)}
               className="absolute top-4 right-4 p-2 rounded-full bg-brand-red hover:bg-brand-hover transition-colors"
@@ -130,13 +145,12 @@ export function ProductsShowcase() {
               <X className="w-6 h-6 text-white" />
             </button>
 
-            {/* Image counter */}
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-ink/80 px-3 py-1 rounded text-[12px] text-brand-light font-bold">
-              {selectedIndex + 1} / {siteConfig.portfolio.length}
+              {selectedIndex + 1} / {portfolio.length}
             </div>
           </div>
         </div>
       )}
     </section>
-  );
+  )
 }

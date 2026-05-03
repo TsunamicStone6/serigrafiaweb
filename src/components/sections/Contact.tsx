@@ -1,23 +1,27 @@
-import React from 'react';
-import { Phone, Mail, MessageCircle } from 'lucide-react';
-import { siteConfig } from '@/config/site.config';
+import React from 'react'
+import { Phone, Mail, MessageCircle } from 'lucide-react'
 
-export function Contact() {
-  const phoneNumber = siteConfig.business.phone?.replace(/\D/g, '') || '';
-  const smsBody = encodeURIComponent("Hi, I'd like to know more about your screen printing services.");
+type ContactProps = {
+  phone: string
+  email: string
+}
+
+export function Contact({ phone, email }: ContactProps) {
+  const phoneNumber = phone?.replace(/\D/g, '') || ''
+  const smsBody = encodeURIComponent("Hi, I'd like to know more about your screen printing services.")
 
   const methods = [
     {
       icon: <Phone className="w-9 h-9" />,
       title: 'Call',
-      value: siteConfig.business.phone,
-      href: `tel:${siteConfig.business.phone}`,
+      value: phone,
+      href: `tel:${phone}`,
     },
     {
       icon: <Mail className="w-9 h-9" />,
       title: 'Email',
-      value: siteConfig.business.email,
-      href: `mailto:${siteConfig.business.email}`,
+      value: email,
+      href: `mailto:${email}`,
     },
     {
       icon: <MessageCircle className="w-9 h-9" />,
@@ -25,7 +29,7 @@ export function Contact() {
       value: 'Send text',
       href: `sms:${phoneNumber}?body=${smsBody}`,
     },
-  ];
+  ]
 
   return (
     <section id="contact" className="bg-ink py-16 md:py-24 border-t-[3px] border-brand-red">
@@ -33,7 +37,6 @@ export function Contact() {
 
         {/* Header */}
         <div className="text-center mb-10 md:mb-14">
-
           <h2 className="text-[clamp(36px,7vw,96px)] font-black uppercase tracking-tightest text-brand-light leading-none">
             Get in touch
           </h2>
@@ -74,5 +77,5 @@ export function Contact() {
 
       </div>
     </section>
-  );
+  )
 }

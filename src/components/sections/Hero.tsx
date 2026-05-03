@@ -1,8 +1,19 @@
-import React from 'react';
-import { siteConfig } from '@/config/site.config';
+import React from 'react'
 
-export function Hero() {
-  const phoneNumber = siteConfig.business.phone?.replace(/\D/g, '') || '';
+type HeroProps = {
+  tagline: string
+  description: string
+  phone: string
+  stats: Array<{ label: string; value: string }>
+}
+
+export function Hero({ tagline, description, phone, stats }: HeroProps) {
+  const phoneNumber = phone?.replace(/\D/g, '') || ''
+
+  // Divide el tagline en partes para el diseño editorial
+  const words = tagline.split(' ')
+  const firstHalf = words.slice(0, Math.ceil(words.length / 2)).join(' ')
+  const secondHalf = words.slice(Math.ceil(words.length / 2)).join(' ')
 
   return (
     <section id="hero" className="bg-ink min-h-[90vh] flex flex-col justify-center border-b border-white/[0.07]">
@@ -16,7 +27,7 @@ export function Hero() {
           </span>
         </div>
 
-        {/* ── MOBILE layout: stacked ── */}
+        {/* ── MOBILE layout ── */}
         <div className="md:hidden flex flex-col items-center text-center mb-10 gap-6">
           <h1 className="text-[clamp(48px,14vw,72px)] font-black leading-[0.88] uppercase tracking-tightest text-brand-light">
             Print what<br />
@@ -24,7 +35,6 @@ export function Hero() {
             your brand.
           </h1>
 
-          {/* Image — mobile */}
           <img
             src="/images/portfolio/calacas-screen-print-tee-01.webp"
             alt="Calacas Prints – Custom screen printed t-shirt San Francisco"
@@ -32,7 +42,7 @@ export function Hero() {
           />
 
           <p className="text-[14px] text-brand-muted leading-[1.7] font-medium max-w-[320px]">
-            {siteConfig.business.description}
+            {description}
           </p>
 
           <div className="flex flex-col w-full gap-3 max-w-[320px]">
@@ -50,9 +60,9 @@ export function Hero() {
             </a>
           </div>
 
-          {/* Stats — mobile horizontal */}
+          {/* Stats — mobile */}
           <div className="flex gap-10 pt-2 border-t border-white/[0.07] w-full justify-center">
-            {siteConfig.about.stats.map((stat, i) => (
+            {stats.map((stat, i) => (
               <div key={i} className="text-center">
                 <div className="text-[36px] font-black text-brand-red leading-none">{stat.value}</div>
                 <div className="text-[8px] font-bold text-brand-gray uppercase tracking-[0.2em] mt-1">{stat.label}</div>
@@ -61,10 +71,10 @@ export function Hero() {
           </div>
         </div>
 
-        {/* ── DESKTOP layout: editorial 3-col ── */}
+        {/* ── DESKTOP layout ── */}
         <div className="hidden md:grid grid-cols-[1fr_auto_1fr] items-center gap-6 mb-16">
           <h1 className="text-[clamp(52px,8vw,108px)] font-black leading-[0.88] uppercase tracking-tightest text-brand-light text-right">
-            Print<br />what
+            {firstHalf}
           </h1>
 
           <img
@@ -74,7 +84,7 @@ export function Hero() {
           />
 
           <h1 className="text-[clamp(52px,8vw,108px)] font-black leading-[0.88] uppercase tracking-tightest text-brand-light">
-            <span className="text-brand-red">defines</span><br />your brand.
+            <span className="text-brand-red">defines</span><br />{secondHalf}
           </h1>
         </div>
 
@@ -82,7 +92,7 @@ export function Hero() {
         <div className="hidden md:flex items-end justify-between gap-10">
           <div className="max-w-[420px]">
             <p className="text-[15px] text-brand-muted leading-[1.7] mb-8 font-medium">
-              {siteConfig.business.description}
+              {description}
             </p>
             <div className="flex flex-wrap gap-3">
               <a
@@ -101,7 +111,7 @@ export function Hero() {
           </div>
 
           <div className="flex flex-col gap-6 text-right">
-            {siteConfig.about.stats.map((stat, i) => (
+            {stats.map((stat, i) => (
               <div key={i}>
                 <div className="text-[42px] font-black text-brand-red leading-none">{stat.value}</div>
                 <div className="text-[9px] font-bold text-brand-gray uppercase tracking-[0.25em] mt-1">{stat.label}</div>
@@ -112,5 +122,5 @@ export function Hero() {
 
       </div>
     </section>
-  );
+  )
 }

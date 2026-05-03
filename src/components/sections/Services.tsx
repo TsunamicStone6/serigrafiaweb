@@ -1,15 +1,20 @@
-import React from 'react';
-import { Shirt, Package, ShoppingBag } from 'lucide-react';
-import { siteConfig } from '@/config/site.config';
+import React from 'react'
+import { Shirt, Package, ShoppingBag } from 'lucide-react'
+import type { Service } from '@/types/sanity'
 
 const iconMap: Record<string, React.ReactNode> = {
   apparel:     <Shirt className="w-8 h-8 md:w-9 md:h-9" />,
   accessories: <Package className="w-8 h-8 md:w-9 md:h-9" />,
   promotional: <ShoppingBag className="w-8 h-8 md:w-9 md:h-9" />,
-};
+}
 
-export function Services() {
-  const phoneNumber = siteConfig.business.phone?.replace(/\D/g, '') || '';
+type ServicesProps = {
+  services: Service[] | Array<{ _id: string; title: string; description: string; icon: string; benefits: string[]; order: number }>
+  phone: string
+}
+
+export function Services({ services, phone }: ServicesProps) {
+  const phoneNumber = phone?.replace(/\D/g, '') || ''
 
   return (
     <section id="services" className="bg-ink py-16 md:py-24 border-y border-white/[0.07]">
@@ -28,11 +33,11 @@ export function Services() {
 
         {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 border border-white/[0.07]">
-          {siteConfig.services.map((service, i) => (
+          {services.map((service, i) => (
             <div
-              key={i}
+              key={service._id}
               className={`group card-line-top flex flex-col gap-4 p-7 md:p-10 transition-colors duration-300 hover:bg-brand-red/[0.03]
-                ${i < siteConfig.services.length - 1 ? 'border-b md:border-b-0 md:border-r border-white/[0.07]' : ''}`}
+                ${i < services.length - 1 ? 'border-b md:border-b-0 md:border-r border-white/[0.07]' : ''}`}
             >
               <div className="text-brand-red transition-transform duration-200 group-hover:scale-110 w-fit">
                 {iconMap[service.icon] ?? <Shirt className="w-8 h-8" />}
@@ -44,7 +49,7 @@ export function Services() {
                 {service.description}
               </p>
               <ul className="flex flex-col gap-2.5 md:gap-3 mt-auto pt-2">
-                {service.benefits.map((b, j) => (
+                {(service.benefits || []).map((b, j) => (
                   <li key={j} className="flex items-start gap-3 text-[12px] text-brand-light">
                     <span className="block w-[5px] h-[5px] bg-brand-red flex-shrink-0 mt-[5px]" />
                     {b}
@@ -71,5 +76,5 @@ export function Services() {
 
       </div>
     </section>
-  );
+  )
 }
