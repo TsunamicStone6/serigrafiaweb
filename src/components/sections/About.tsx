@@ -43,6 +43,7 @@ export function About({ title, description, story, aboutImage, localImage, found
                   src={imageSrc}
                   alt="Calacas Prints – Mission District Store"
                   fill
+                  loading="lazy"
                   sizes="(max-width:1024px) 100vw, 50vw"
                   className="object-cover brightness-75 hover:brightness-90 transition-all duration-500"
                   quality={85}

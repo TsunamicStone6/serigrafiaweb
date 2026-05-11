@@ -1,6 +1,15 @@
 import type { Metadata, Viewport } from 'next'
+import { Inter } from 'next/font/google'
 import { JsonLdScripts } from '@/components/seo/JsonLdScripts'
 import './globals.css'
+
+// next/font carga Inter sin bloquear el render (zero layout shift)
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800', '900'],
+  display: 'swap',
+  variable: '--font-inter',
+})
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -68,8 +77,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={inter.variable}>
       <head>
+        {/* Preload LCP image para móvil y desktop */}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/portfolio/calacas-screen-print-tee-01.webp"
+          fetchPriority="high"
+        />
+        <link rel="preconnect" href="https://cdn.sanity.io" />
+        <link rel="dns-prefetch" href="https://cdn.sanity.io" />
         <JsonLdScripts />
       </head>
       <body className="bg-ink text-brand-light font-sans">{children}</body>

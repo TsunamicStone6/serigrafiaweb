@@ -58,7 +58,6 @@ export const siteConfig = {
     { id: 3,  title: 'Graphic Screen Print Tee',          category: 'T-Shirts',    image: '/images/portfolio/calacas-screen-print-tee-03.webp', description: 'Bold graphic screen printing on custom apparel.' },
     { id: 4,  title: 'Custom Apparel Print',              category: 'Apparel',     image: '/images/portfolio/calacas-screen-print-tee-04.webp', description: 'Custom apparel with professional screen printing finish.' },
     { id: 5,  title: 'Multi-Color Screen Print',          category: 'T-Shirts',    image: '/images/portfolio/calacas-screen-print-tee-05.webp', description: 'Multi-color screen print on custom t-shirt, SF Bay Area.' },
-    { id: 6,  title: 'Custom Design Print Tee',           category: 'T-Shirts',    image: '/images/portfolio/calacas-screen-print-tee-06.webp', description: 'Custom design screen printed by Calacas Prints.' },
     { id: 7,  title: 'Screen Print Merchandise',          category: 'Merchandise', image: '/images/portfolio/calacas-screen-print-tee-07.webp', description: 'Professional screen printed merchandise for events and brands.' },
     { id: 8,  title: 'Custom Brand T-Shirt',              category: 'T-Shirts',    image: '/images/portfolio/calacas-screen-print-tee-08.webp', description: 'Custom branded t-shirt with screen print by Calacas Prints.' },
     { id: 9,  title: 'Screen Print Event Tee',            category: 'Events',      image: '/images/portfolio/calacas-screen-print-tee-09.webp', description: 'Screen printed event t-shirt, fast turnaround SF.' },

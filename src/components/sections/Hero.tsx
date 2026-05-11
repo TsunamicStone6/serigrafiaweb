@@ -1,3 +1,4 @@
+import Image from 'next/image'
 
 type HeroProps = {
   tagline: string
@@ -34,10 +35,14 @@ export function Hero({ tagline, description, phone, stats }: HeroProps) {
             your brand.
           </h1>
 
-          <img
+          <Image
             src="/images/portfolio/calacas-screen-print-tee-01.webp"
             alt="Calacas Prints – Custom screen printed t-shirt San Francisco"
             className="w-[200px] aspect-[3/4] object-contain"
+            width={200}
+            height={267}
+            priority
+            sizes="200px"
           />
 
           <p className="text-[14px] text-brand-muted leading-[1.7] font-medium max-w-[320px]">
@@ -76,10 +81,14 @@ export function Hero({ tagline, description, phone, stats }: HeroProps) {
             {firstHalf}
           </h1>
 
-          <img
+          <Image
             src="/images/portfolio/calacas-screen-print-tee-01.webp"
             alt="Calacas Prints – Custom screen printed t-shirt San Francisco"
             className="w-[clamp(180px,20vw,290px)] aspect-[3/4] object-contain mx-auto flex-shrink-0"
+            width={290}
+            height={387}
+            priority
+            sizes="(max-width: 768px) 0px, 20vw"
           />
 
           <h1 className="text-[clamp(52px,8vw,108px)] font-black leading-[0.88] uppercase tracking-tightest text-brand-light">
