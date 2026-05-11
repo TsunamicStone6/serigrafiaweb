@@ -4,7 +4,7 @@ import { schemaTypes } from './src/sanity/schemas'
 
 export default defineConfig({
   name: 'calacas-prints',
-  title: 'Calacas Prints — Panel de Administración',
+  title: 'Calacas Prints — Admin Panel',
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
   basePath: '/studio',
@@ -12,23 +12,23 @@ export default defineConfig({
     structureTool({
       structure: (S) =>
         S.list()
-          .title('Contenido del Sitio')
+          .title('Site Content')
           .items([
             // Singleton: business settings
             S.listItem()
-              .title('⚙️ Configuración del Negocio')
+              .title('⚙️ Business Settings')
               .id('siteSettings')
               .child(
                 S.document()
                   .schemaType('siteSettings')
                   .documentId('siteSettings')
-                  .title('Configuración del Negocio')
+                  .title('Business Settings')
               ),
             S.divider(),
             // Services list
-            S.documentTypeListItem('service').title('🖨️ Servicios'),
+            S.documentTypeListItem('service').title('🖨️ Services'),
             // Portfolio list
-            S.documentTypeListItem('portfolioItem').title('🎨 Portafolio / Productos'),
+            S.documentTypeListItem('portfolioItem').title('🎨 Portfolio / Products'),
           ]),
     }),
   ],

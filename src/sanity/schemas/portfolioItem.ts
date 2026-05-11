@@ -2,18 +2,18 @@ import { defineField, defineType } from 'sanity'
 
 export const portfolioItem = defineType({
   name: 'portfolioItem',
-  title: 'Producto / Diseño',
+  title: 'Portfolio Item',
   type: 'document',
   fields: [
     defineField({
       name: 'title',
-      title: 'Título',
+      title: 'Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'category',
-      title: 'Categoría',
+      title: 'Category',
       type: 'string',
       options: {
         list: [
@@ -30,35 +30,35 @@ export const portfolioItem = defineType({
     }),
     defineField({
       name: 'image',
-      title: '📷 Imagen del producto',
+      title: '📷 Product Image',
       type: 'image',
       options: { hotspot: true },
-      description: 'Sube la imagen aquí. Formatos recomendados: WebP, PNG, JPG.',
+      description: 'Upload image here. Recommended formats: WebP, PNG, JPG.',
     }),
     defineField({
       name: 'imageUrl',
-      title: 'URL de imagen (solo migración)',
+      title: 'Image URL (migration only)',
       type: 'string',
       hidden: true,
-      description: 'Campo temporal para migración de imágenes locales.',
+      description: 'Temporary field for local image migration.',
     }),
     defineField({
       name: 'description',
-      title: 'Descripción (para SEO)',
+      title: 'Description (for SEO)',
       type: 'text',
       rows: 2,
     }),
     defineField({
       name: 'order',
-      title: 'Orden de aparición',
+      title: 'Display Order',
       type: 'number',
-      description: 'Número más bajo aparece primero',
+      description: 'Lower number appears first',
       initialValue: 99,
     }),
   ],
   orderings: [
     {
-      title: 'Orden manual',
+      title: 'Manual Order',
       name: 'orderAsc',
       by: [{ field: 'order', direction: 'asc' }],
     },
