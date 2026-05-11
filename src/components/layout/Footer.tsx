@@ -36,7 +36,7 @@ export function Footer({ brandName, description, phone, email, address, instagra
     { icon: <IconInstagram />, href: instagram, label: 'Instagram' },
     { icon: <IconFacebook />,  href: facebook,  label: 'Facebook'  },
     { icon: <IconTwitter />,   href: twitter,   label: 'Twitter'   },
-  ]
+  ].filter(s => s.href)
 
   return (
     <footer className="bg-surface border-t-[3px] border-brand-red pt-10 md:pt-14 pb-8">
