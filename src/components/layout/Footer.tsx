@@ -1,5 +1,3 @@
-import React from 'react'
-
 type FooterProps = {
   brandName: string
   description: string

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Shirt, Package, ShoppingBag } from 'lucide-react'
 import type { Service } from '@/types/sanity'
 

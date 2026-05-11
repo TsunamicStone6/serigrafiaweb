@@ -1,4 +1,3 @@
-import React from 'react'
 import Image from 'next/image'
 import { urlForImage } from '@/sanity/image'
 import type { SanityImage, BusinessHour } from '@/types/sanity'
