@@ -40,3 +40,11 @@ Thumbs.db
 *.zip
 *.7z
 *.tar.gz
+
+# Backup files
+*.bak
+*.backup
+
+# Hostinger deployment
+.env.production
+ecosystem.config.js.bak
