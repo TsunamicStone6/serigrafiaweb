@@ -8,6 +8,10 @@
  */
 
 import { createClient } from '@sanity/client'
+import { config } from 'dotenv'
+
+// Cargar .env.local
+config({ path: '.env.local' })
 
 const client = createClient({
   projectId: 'k6geulcb',
@@ -82,26 +86,35 @@ const servicesData = [
 // ─── Portfolio Items ──────────────────────────────────────────────────────────
 
 const portfolioData = [
-  { title: 'Custom Screen Print Tee',      category: 'T-Shirts',    imageUrl: '/images/portfolio/calacas-screen-print-tee-01.webp', order: 1  },
-  { title: 'Screen Printed T-Shirt',       category: 'T-Shirts',    imageUrl: '/images/portfolio/calacas-screen-print-tee-02.webp', order: 2  },
-  { title: 'Graphic Screen Print Tee',     category: 'T-Shirts',    imageUrl: '/images/portfolio/calacas-screen-print-tee-03.webp', order: 3  },
-  { title: 'Custom Apparel Print',         category: 'Apparel',     imageUrl: '/images/portfolio/calacas-screen-print-tee-04.webp', order: 4  },
-  { title: 'Multi-Color Screen Print',     category: 'T-Shirts',    imageUrl: '/images/portfolio/calacas-screen-print-tee-05.webp', order: 5  },
-  { title: 'Custom Design Print Tee',      category: 'T-Shirts',    imageUrl: '/images/portfolio/calacas-screen-print-tee-06.webp', order: 6  },
-  { title: 'Screen Print Merchandise',     category: 'Merchandise', imageUrl: '/images/portfolio/calacas-screen-print-tee-07.webp', order: 7  },
-  { title: 'Custom Brand T-Shirt',         category: 'T-Shirts',    imageUrl: '/images/portfolio/calacas-screen-print-tee-08.webp', order: 8  },
-  { title: 'Screen Print Event Tee',       category: 'Events',      imageUrl: '/images/portfolio/calacas-screen-print-tee-09.webp', order: 9  },
-  { title: 'Custom Graphic Tee',           category: 'T-Shirts',    imageUrl: '/images/portfolio/calacas-screen-print-tee-10.webp', order: 10 },
-  { title: 'Artisan Screen Print Apparel', category: 'Apparel',     imageUrl: '/images/portfolio/calacas-screen-print-tee-11.webp', order: 11 },
-  { title: 'Screen Print Logo Tee',        category: 'T-Shirts',    imageUrl: '/images/portfolio/calacas-screen-print-tee-12.webp', order: 12 },
-  { title: 'Custom Screen Print Design',   category: 'T-Shirts',    imageUrl: '/images/portfolio/calacas-screen-print-tee-13.webp', order: 13 },
-  { title: 'Screen Print Merch Tee',       category: 'Merchandise', imageUrl: '/images/portfolio/calacas-screen-print-tee-14.webp', order: 14 },
-  { title: 'Blue Custom Screen Print Tee', category: 'T-Shirts',    imageUrl: '/images/portfolio/calacas-screen-print-blue-tee.webp', order: 15 },
-  { title: 'Gray Custom Screen Print Tee', category: 'T-Shirts',    imageUrl: '/images/portfolio/calacas-screen-print-gray-tee.webp', order: 16 },
+  { title: 'Custom Screen Print Tee',           category: 'T-Shirts',    imageUrl: '/images/portfolio/calacas-screen-print-tee-01.webp', order: 1  },
+  { title: 'Screen Printed T-Shirt',            category: 'T-Shirts',    imageUrl: '/images/portfolio/calacas-screen-print-tee-02.webp', order: 2  },
+  { title: 'Graphic Screen Print Tee',          category: 'T-Shirts',    imageUrl: '/images/portfolio/calacas-screen-print-tee-03.webp', order: 3  },
+  { title: 'Custom Apparel Print',              category: 'Apparel',     imageUrl: '/images/portfolio/calacas-screen-print-tee-04.webp', order: 4  },
+  { title: 'Multi-Color Screen Print',          category: 'T-Shirts',    imageUrl: '/images/portfolio/calacas-screen-print-tee-05.webp', order: 5  },
+  { title: 'Screen Print Merchandise',          category: 'Merchandise', imageUrl: '/images/portfolio/calacas-screen-print-tee-06.webp', order: 6  },
+  { title: 'Custom Brand T-Shirt',              category: 'T-Shirts',    imageUrl: '/images/portfolio/calacas-screen-print-tee-07.webp', order: 7  },
+  { title: 'Screen Print Event Tee',            category: 'Events',      imageUrl: '/images/portfolio/calacas-screen-print-tee-08.webp', order: 8  },
+  { title: 'Custom Graphic Tee',                category: 'T-Shirts',    imageUrl: '/images/portfolio/calacas-screen-print-tee-09.webp', order: 9  },
+  { title: 'Artisan Screen Print Apparel',      category: 'Apparel',     imageUrl: '/images/portfolio/calacas-screen-print-tee-10.webp', order: 10 },
+  { title: 'Screen Print Logo Tee',             category: 'T-Shirts',    imageUrl: '/images/portfolio/calacas-screen-print-tee-11.webp', order: 11 },
+  { title: 'Screen Print Merch Tee',            category: 'Merchandise', imageUrl: '/images/portfolio/calacas-screen-print-tee-12.webp', order: 12 },
+  { title: 'Blue Custom Screen Print Tee',      category: 'T-Shirts',    imageUrl: '/images/portfolio/calacas-screen-print-tee-13.webp', order: 13 },
+  { title: 'Gray Custom Screen Print Tee',      category: 'T-Shirts',    imageUrl: '/images/portfolio/calacas-screen-print-tee-14.webp', order: 14 },
 ].map((item, i) => ({
   ...item,
   _type: 'portfolioItem',
   description: `Custom screen printed item by Calacas Prints, San Francisco. ${item.category}.`,
+}))
+
+// ─── Coming Soon Items ────────────────────────────────────────────────────────
+
+const comingSoonData = [
+  { title: '¡Guapea!', imageUrl: '/images/portfolio/coming-soon/calacas-guapea-salsa-tee.webp', order: 1 },
+  { title: '¡Dile que no!', imageUrl: '/images/portfolio/coming-soon/calacas-dile-que-no-salsa-tee.webp', order: 2 },
+  { title: '¡Vacílala!', imageUrl: '/images/portfolio/coming-soon/calacas-vacilala-salsa-tee.webp', order: 3 },
+].map((item) => ({
+  ...item,
+  _type: 'comingSoonItem',
 }))
 
 // ─── Run seed ─────────────────────────────────────────────────────────────────
@@ -134,6 +147,13 @@ async function seed() {
     for (const p of portfolioData) {
       await client.create(p)
       console.log(`   ✅ ${p.title}`)
+    }
+
+    // Coming Soon
+    console.log('\n🚀 Creando items de "Coming Soon"...')
+    for (const c of comingSoonData) {
+      await client.create(c)
+      console.log(`   ✅ ${c.title}`)
     }
 
     console.log('\n🎉 ¡Seed completado!')

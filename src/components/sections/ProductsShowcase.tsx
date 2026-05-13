@@ -19,16 +19,27 @@ type ProductsShowcaseProps = {
   phone: string
 }
 
-function getImageSrc(item: { image?: any; imageUrl?: string }): string {
+function getImageSrc(item: { image?: any; imageUrl?: string; order?: number }): string {
+  // PRIORITY ORDER:
+  // 1. Sanity uploaded image (asset) - ALWAYS preferred
   if (item.image?.asset?._ref) {
     return urlForImage(item.image).width(600).height(600).url()
   }
-  return item.imageUrl || '/images/portfolio/calacas-screen-print-tee-01.webp'
+  // 2. Order-based fallback (local files)
+  if (item.order && item.order >= 1 && item.order <= 14) {
+    const padded = String(item.order).padStart(2, '0')
+    return '/images/portfolio/calacas-screen-print-tee-' + padded + '.webp'
+  }
+  // 3. Last resort: imageUrl (legacy migration)
+  if (item.imageUrl) {
+    return item.imageUrl
+  }
+  return '/images/portfolio/calacas-screen-print-tee-01.webp'
 }
 
 export function ProductsShowcase({ portfolio, phone }: ProductsShowcaseProps) {
   const phoneNumber = phone?.replace(/\D/g, '') || ''
-  const smsLink = `sms:${phoneNumber}?body=${encodeURIComponent("Hi, I saw your work and I'm interested in a custom screen printing order.")}`
+  const smsLink = 'sms:' + phoneNumber + '?body=' + encodeURIComponent("Hi, I saw your work and I'm interested in a custom screen printing order.")
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
 
   const handlePrevious = () => {
@@ -45,7 +56,6 @@ export function ProductsShowcase({ portfolio, phone }: ProductsShowcaseProps) {
     <section id="products" className="bg-ink py-16 md:py-24 border-y border-white/[0.07]">
       <div className="max-w-[1280px] mx-auto px-6 md:px-12">
 
-        {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-8 md:mb-12">
           <div>
             <div className="flex items-center gap-3 mb-3">
@@ -61,7 +71,6 @@ export function ProductsShowcase({ portfolio, phone }: ProductsShowcaseProps) {
           </p>
         </div>
 
-        {/* Gallery grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
           {portfolio.map((item, index) => (
             <button
@@ -71,7 +80,7 @@ export function ProductsShowcase({ portfolio, phone }: ProductsShowcaseProps) {
             >
               <Image
                 src={getImageSrc(item)}
-                alt={`Calacas Prints – ${item.title} – Custom screen printing San Francisco`}
+                alt={'Calacas Prints - ' + item.title + ' - Custom screen printing San Francisco'}
                 fill
                 sizes="(max-width:640px) 50vw, (max-width:1024px) 33vw, 25vw"
                 className="object-contain p-3 brightness-90 group-hover:brightness-100 group-hover:scale-105 transition-all duration-500"
@@ -80,14 +89,13 @@ export function ProductsShowcase({ portfolio, phone }: ProductsShowcaseProps) {
               />
               <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/60 transition-all duration-300 flex items-center justify-center">
                 <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-[10px] font-black text-white uppercase tracking-[0.2em] border border-white/60 px-4 py-2">
-                  View →
+                  View
                 </span>
               </div>
             </button>
           ))}
         </div>
 
-        {/* CTA */}
         <div className="mt-8 md:mt-10 flex flex-col md:flex-row items-center justify-between gap-4 border border-white/[0.07] bg-card px-6 md:px-10 py-6 md:py-7">
           <div>
             <p className="text-[15px] md:text-[17px] font-black uppercase text-brand-light">Like what you see?</p>
@@ -97,12 +105,11 @@ export function ProductsShowcase({ portfolio, phone }: ProductsShowcaseProps) {
             href={smsLink}
             className="w-full md:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-brand-red text-white text-[11px] font-black uppercase tracking-[0.18em] hover:bg-brand-hover transition-colors flex-shrink-0"
           >
-            Get a quote ↗
+            Get a quote
           </a>
         </div>
       </div>
 
-      {/* Lightbox */}
       {selectedIndex !== null && (
         <div
           className="fixed inset-0 bg-ink/95 z-50 flex items-center justify-center p-4 animate-in fade-in duration-200"
@@ -114,7 +121,7 @@ export function ProductsShowcase({ portfolio, phone }: ProductsShowcaseProps) {
           >
             <Image
               src={getImageSrc(portfolio[selectedIndex])}
-              alt={`Calacas Prints – ${portfolio[selectedIndex].title}`}
+              alt={'Calacas Prints - ' + portfolio[selectedIndex].title}
               width={800}
               height={1000}
               className="object-contain w-full h-full max-h-[85vh] drop-shadow-2xl"

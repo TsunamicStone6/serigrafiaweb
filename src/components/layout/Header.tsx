@@ -26,7 +26,7 @@ export function Header({ phone, navigation, logo, brandName }: HeaderProps) {
         {/* Logo */}
         <a href="#hero" className="flex items-center gap-3.5 group no-underline flex-shrink-0">
           <div className="relative w-[52px] h-[52px] md:w-[58px] md:h-[58px] flex-shrink-0 rounded-full overflow-hidden ring-1 ring-white/10 group-hover:ring-brand-red transition-all duration-300">
-            <Image src={logo} alt={brandName} fill className="object-cover" priority />
+            <Image src={logo} alt={brandName} fill sizes="(max-width: 768px) 52px, 58px" className="object-cover" priority />
           </div>
           <div className="flex flex-col leading-none">
             <span className="text-[16px] md:text-[18px] font-black text-brand-light uppercase tracking-[0.08em] group-hover:text-brand-red transition-colors duration-200">

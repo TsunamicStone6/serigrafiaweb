@@ -34,6 +34,7 @@ export const portfolioItem = defineType({
       type: 'image',
       options: { hotspot: true },
       description: 'Upload image here. Recommended formats: WebP, PNG, JPG.',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'imageUrl',
@@ -54,6 +55,7 @@ export const portfolioItem = defineType({
       type: 'number',
       description: 'Lower number appears first',
       initialValue: 99,
+      validation: (Rule) => Rule.required(),
     }),
   ],
   orderings: [

@@ -1,23 +1,17 @@
 import dynamic from 'next/dynamic'
-import { Hero }       from '@/components/sections/Hero'
-import { SplitEntry } from '@/components/sections/SplitEntry'
-import { About }      from '@/components/sections/About'
-import { Contact }    from '@/components/sections/Contact'
+import { Hero }        from '@/components/sections/Hero'
+import { SplitEntry }  from '@/components/sections/SplitEntry'
+import { About }       from '@/components/sections/About'
+import { Contact }     from '@/components/sections/Contact'
+import { ComingSoon }  from '@/components/sections/ComingSoon'
+import { ProductsShowcaseClient } from '@/components/ProductsShowcaseClient'
 import { client }     from '@/sanity/client'
-import { SITE_SETTINGS_QUERY, SERVICES_QUERY, PORTFOLIO_QUERY } from '@/sanity/queries'
+import { SITE_SETTINGS_QUERY, SERVICES_QUERY, PORTFOLIO_QUERY, COMING_SOON_QUERY } from '@/sanity/queries'
 import { siteConfig } from '@/config/site.config'
-import type { SiteSettings, Service, PortfolioItem } from '@/types/sanity'
+import type { SiteSettings, Service, PortfolioItem, ComingSoonItem } from '@/types/sanity'
 
 const Services = dynamic(
   () => import('@/components/sections/Services').then((m) => ({ default: m.Services })),
-  { ssr: true, loading: () => <div className="min-h-[40vh] bg-ink" /> }
-)
-
-const ProductsShowcase = dynamic(
-  () =>
-    import('@/components/sections/ProductsShowcase').then((m) => ({
-      default: m.ProductsShowcase,
-    })),
   { ssr: true, loading: () => <div className="min-h-[40vh] bg-ink" /> }
 )
 
@@ -26,10 +20,11 @@ export default async function Home() {
   const isDev = process.env.NODE_ENV === 'development'
   const revalidate = isDev ? 0 : 60
 
-  const [settings, services, portfolio] = await Promise.all([
+  const [settings, services, portfolio, comingSoon] = await Promise.all([
     client.fetch<SiteSettings | null>(SITE_SETTINGS_QUERY, {}, { next: { revalidate } }),
     client.fetch<Service[]>(SERVICES_QUERY, {}, { next: { revalidate } }),
     client.fetch<PortfolioItem[]>(PORTFOLIO_QUERY, {}, { next: { revalidate } }),
+    client.fetch<ComingSoonItem[]>(COMING_SOON_QUERY, {}, { next: { revalidate } }),
   ])
 
   // Fallbacks a siteConfig si Sanity no tiene datos aún
@@ -62,13 +57,20 @@ export default async function Home() {
     order: i,
   }))
 
-  const portfolioData = portfolio.length ? portfolio : siteConfig.portfolio.map((p) => ({
-    _id: String(p.id),
+  const portfolioData = portfolio && portfolio.length > 0 ? portfolio : siteConfig.portfolio.map((p, idx) => ({
+    _id: `local-${p.id}`,
     title: p.title,
     category: p.category,
     imageUrl: p.image,
     description: p.description,
-    order: p.id,
+    order: idx + 1,
+  }))
+
+  const comingSoonData = comingSoon && comingSoon.length > 0 ? comingSoon : siteConfig.comingSoon.map((c, idx) => ({
+    _id: `local-${c.id}`,
+    title: c.title,
+    imageUrl: c.image,
+    order: idx + 1,
   }))
 
   return (
@@ -76,7 +78,8 @@ export default async function Home() {
       <Hero {...heroData} />
       <Services services={servicesData} phone={phone} />
       <SplitEntry />
-      <ProductsShowcase portfolio={portfolioData} phone={phone} />
+      <ProductsShowcaseClient portfolio={portfolioData} phone={phone} />
+      <ComingSoon drops={comingSoonData} />
       <About {...aboutData} />
       <Contact phone={phone} email={email} />
     </>

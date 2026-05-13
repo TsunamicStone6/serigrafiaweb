@@ -53,3 +53,11 @@ export type PortfolioItem = {
   description: string
   order: number
 }
+
+export type ComingSoonItem = {
+  _id: string
+  title: string
+  image?: SanityImage
+  imageUrl?: string
+  order: number
+}

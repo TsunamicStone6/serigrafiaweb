@@ -29,6 +29,8 @@ export default defineConfig({
             S.documentTypeListItem('service').title('🖨️ Services'),
             // Portfolio list
             S.documentTypeListItem('portfolioItem').title('🎨 Portfolio / Products'),
+            // Coming Soon list
+            S.documentTypeListItem('comingSoonItem').title('🚀 Coming Soon'),
           ]),
     }),
   ],

@@ -58,16 +58,15 @@ export const siteConfig = {
     { id: 3,  title: 'Graphic Screen Print Tee',          category: 'T-Shirts',    image: '/images/portfolio/calacas-screen-print-tee-03.webp', description: 'Bold graphic screen printing on custom apparel.' },
     { id: 4,  title: 'Custom Apparel Print',              category: 'Apparel',     image: '/images/portfolio/calacas-screen-print-tee-04.webp', description: 'Custom apparel with professional screen printing finish.' },
     { id: 5,  title: 'Multi-Color Screen Print',          category: 'T-Shirts',    image: '/images/portfolio/calacas-screen-print-tee-05.webp', description: 'Multi-color screen print on custom t-shirt, SF Bay Area.' },
-    { id: 6,  title: 'Screen Print Merchandise',          category: 'Merchandise', image: '/images/portfolio/calacas-screen-print-tee-07.webp', description: 'Professional screen printed merchandise for events and brands.' },
+    { id: 6,  title: 'Screen Print Merchandise',          category: 'Merchandise', image: '/images/portfolio/calacas-screen-print-tee-06.webp', description: 'Professional screen printed merchandise for events and brands.' },
     { id: 7,  title: 'Custom Brand T-Shirt',              category: 'T-Shirts',    image: '/images/portfolio/calacas-screen-print-tee-07.webp', description: 'Custom branded t-shirt with screen print by Calacas Prints.' },
     { id: 8,  title: 'Screen Print Event Tee',            category: 'Events',      image: '/images/portfolio/calacas-screen-print-tee-08.webp', description: 'Screen printed event t-shirt, fast turnaround SF.' },
     { id: 9,  title: 'Custom Graphic Tee',                category: 'T-Shirts',    image: '/images/portfolio/calacas-screen-print-tee-09.webp', description: 'Custom graphic tee with sharp screen print by Calacas Prints.' },
     { id: 10, title: 'Artisan Screen Print Apparel',      category: 'Apparel',     image: '/images/portfolio/calacas-screen-print-tee-10.webp', description: 'Artisan-quality screen print apparel, Mission District.' },
     { id: 11, title: 'Screen Print Logo Tee',             category: 'T-Shirts',    image: '/images/portfolio/calacas-screen-print-tee-11.webp', description: 'Logo screen printed t-shirt for businesses and events.' },
-    { id: 12, title: 'Custom Screen Print Design',        category: 'T-Shirts',    image: '/images/portfolio/calacas-screen-print-tee-12.webp', description: 'Unique custom screen print design on premium apparel.' },
-    { id: 13, title: 'Screen Print Merch Tee',            category: 'Merchandise', image: '/images/portfolio/calacas-screen-print-tee-13.webp', description: 'Custom merch tee with screen printing, Bay Area.' },
-    { id: 14, title: 'Blue Custom Screen Print Tee',      category: 'T-Shirts',    image: '/images/portfolio/calacas-screen-print-blue-tee.webp', description: 'Blue custom screen printed t-shirt by Calacas Prints SF.' },
-    { id: 15, title: 'Gray Custom Screen Print Tee',      category: 'T-Shirts',    image: '/images/portfolio/calacas-screen-print-gray-tee.webp', description: 'Gray custom screen printed t-shirt, high-quality finish.' },
+    { id: 12, title: 'Screen Print Merch Tee',            category: 'Merchandise', image: '/images/portfolio/calacas-screen-print-tee-12.webp', description: 'Custom merch tee with screen printing, Bay Area.' },
+    { id: 13, title: 'Blue Custom Screen Print Tee',      category: 'T-Shirts',    image: '/images/portfolio/calacas-screen-print-tee-13.webp', description: 'Blue custom screen printed t-shirt by Calacas Prints SF.' },
+    { id: 14, title: 'Gray Custom Screen Print Tee',      category: 'T-Shirts',    image: '/images/portfolio/calacas-screen-print-tee-14.webp', description: 'Gray custom screen printed t-shirt, high-quality finish.' },
   ],
 
   // Services
@@ -102,6 +101,13 @@ export const siteConfig = {
         'Stickers & patches',
       ],
     },
+  ],
+
+  // Coming Soon Items
+  comingSoon: [
+    { id: 1, title: '¡Guapea!', image: '/images/portfolio/coming-soon/calacas-guapea-salsa-tee.webp' },
+    { id: 2, title: '¡Dile que no!', image: '/images/portfolio/coming-soon/calacas-dile-que-no-salsa-tee.webp' },
+    { id: 3, title: '¡Vacílala!', image: '/images/portfolio/coming-soon/calacas-vacilala-salsa-tee.webp' },
   ],
 };
 

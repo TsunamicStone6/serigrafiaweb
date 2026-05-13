@@ -43,3 +43,13 @@ export const PORTFOLIO_QUERY = groq`
     order,
   }
 `
+
+export const COMING_SOON_QUERY = groq`
+  *[_type == "comingSoonItem"] | order(order asc) {
+    _id,
+    title,
+    image,
+    imageUrl,
+    order,
+  }
+`

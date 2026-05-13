@@ -41,7 +41,6 @@ export function Hero({ tagline, description, phone, stats }: HeroProps) {
             className="w-[200px] aspect-[3/4] object-contain"
             width={200}
             height={267}
-            priority
             sizes="200px"
           />
 
@@ -87,7 +86,6 @@ export function Hero({ tagline, description, phone, stats }: HeroProps) {
             className="w-[clamp(180px,20vw,290px)] aspect-[3/4] object-contain mx-auto flex-shrink-0"
             width={290}
             height={387}
-            priority
             sizes="(max-width: 768px) 0px, 20vw"
           />
 
