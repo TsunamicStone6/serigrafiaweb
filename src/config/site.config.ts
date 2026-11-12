@@ -24,9 +24,9 @@ export const siteConfig = {
 
   // Social media
   social: {
-    instagram: 'https://instagram.com',
-    facebook: 'https://facebook.com',
-    twitter: 'https://twitter.com',
+    instagram: 'https://www.instagram.com/calacas_printing',
+    facebook: 'https://www.facebook.com/profile.php?id=100079154694916',
+    twitter: '',
   },
 
   // About/Story
@@ -47,6 +47,7 @@ export const siteConfig = {
     { label: 'Home', href: '#hero' },
     { label: 'Services', href: '#services' },
     { label: 'Products', href: '#products' },
+    { label: 'Shop', href: '#shop' },
     { label: 'About', href: '#about' },
     { label: 'Contact', href: '#contact' },
   ],
@@ -108,6 +109,7 @@ export const siteConfig = {
     { id: 1, title: '¡Guapea!', image: '/images/portfolio/coming-soon/calacas-guapea-salsa-tee.webp' },
     { id: 2, title: '¡Dile que no!', image: '/images/portfolio/coming-soon/calacas-dile-que-no-salsa-tee.webp' },
     { id: 3, title: '¡Vacílala!', image: '/images/portfolio/coming-soon/calacas-vacilala-salsa-tee.webp' },
+    { id: 4, title: '¡Enchúfala!', image: '/images/portfolio/coming-soon/calacas-enchufla-salsa-tee.webp' },
   ],
 };
 

@@ -76,10 +76,10 @@ export default async function Home() {
   return (
     <>
       <Hero {...heroData} />
+      <ComingSoon drops={comingSoonData} phone={phone} />
       <Services services={servicesData} phone={phone} />
       <SplitEntry />
       <ProductsShowcaseClient portfolio={portfolioData} phone={phone} />
-      <ComingSoon drops={comingSoonData} />
       <About {...aboutData} />
       <Contact phone={phone} email={email} />
     </>
