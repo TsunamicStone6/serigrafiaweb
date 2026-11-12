@@ -21,7 +21,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://calacasprints.com'),
-  title: 'Screen Printing San Francisco | Custom Apparel | Calacas Prints',
+  title: 'Calacas Prints | Screen Printing San Francisco',
   description:
     'Professional screen printing and custom apparel in San Francisco. Custom t-shirts, hoodies, caps & merch. Fast turnaround, quality guaranteed. Est. 2012.',
   keywords: [
