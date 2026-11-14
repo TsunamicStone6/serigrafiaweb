@@ -75,7 +75,9 @@ export function Header({ phone, navigation, logo, brandName }: HeaderProps) {
         <button
           onClick={() => setOpen(!open)}
           className="md:hidden text-brand-light w-11 h-11 -mr-2 flex items-center justify-center hover:text-brand-red transition-colors"
-          aria-label="Menu"
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
         >
           {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
@@ -83,7 +85,7 @@ export function Header({ phone, navigation, logo, brandName }: HeaderProps) {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-surface border-t border-white/[0.07]">
+        <div id="mobile-menu" className="md:hidden bg-surface border-t border-white/[0.07]">
           <div className="max-w-[1280px] mx-auto px-6 py-6 flex flex-col gap-1">
             {navigation.map((item) => (
               <a

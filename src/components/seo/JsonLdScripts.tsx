@@ -8,11 +8,19 @@ function safeJson(data: unknown) {
 }
 
 export function JsonLdScripts() {
+  // Solo redes con URL real (sameAs no admite cadenas vacías)
+  const socialLinks = [
+    siteConfig.social.instagram,
+    siteConfig.social.facebook,
+    siteConfig.social.twitter,
+  ].filter(Boolean);
+  const logoUrl = `${BASE_URL}${siteConfig.brand.logo}`;
+
   const localBusinessSchema = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     '@id': 'https://calacasprints.com',
-    name: siteConfig.business.name,
+    name: siteConfig.brand.name,
     description: siteConfig.business.description,
     url: 'https://calacasprints.com',
     telephone: siteConfig.business.phone,
@@ -26,26 +34,23 @@ export function JsonLdScripts() {
       addressCountry: 'US',
     },
 
-    sameAs: [
-      siteConfig.social.instagram,
-      siteConfig.social.facebook,
-      siteConfig.social.twitter,
-    ],
-    image: siteConfig.brand.logo,
+    sameAs: socialLinks,
+    image: logoUrl,
+    logo: logoUrl,
     foundingDate: '2012',
-    areaServed: {
-      '@type': 'City',
-      name: 'San Francisco',
-    },
+    areaServed: [
+      { '@type': 'City', name: 'San Francisco' },
+      { '@type': 'AdministrativeArea', name: 'San Francisco Bay Area' },
+    ],
     priceRange: '$$',
   };
 
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: siteConfig.business.name,
+    name: siteConfig.brand.name,
     url: 'https://calacasprints.com',
-    logo: `https://calacasprints.com${siteConfig.brand.logo}`,
+    logo: logoUrl,
     description: siteConfig.business.description,
     foundingDate: '2012',
     contactPoint: {
@@ -54,45 +59,27 @@ export function JsonLdScripts() {
       telephone: siteConfig.business.phone,
       email: siteConfig.business.email,
     },
-    sameAs: [
-      siteConfig.social.instagram,
-      siteConfig.social.facebook,
-      siteConfig.social.twitter,
-    ],
+    sameAs: socialLinks,
   };
 
   const servicesSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    itemListElement: [
-      {
+    itemListElement: siteConfig.services.map((service, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
         '@type': 'Service',
-        name: 'Tees & Apparel',
-        description: 'Screen printing on tees, hoodies, and more. Quality that lasts.',
+        name: service.title,
+        description: service.description,
+        serviceType: service.title,
         provider: {
           '@type': 'LocalBusiness',
-          name: siteConfig.business.name,
+          name: siteConfig.brand.name,
+          '@id': BASE_URL,
         },
       },
-      {
-        '@type': 'Service',
-        name: 'Caps & Accessories',
-        description: 'Branding on accessories. Your logo, your style, your brand.',
-        provider: {
-          '@type': 'LocalBusiness',
-          name: siteConfig.business.name,
-        },
-      },
-      {
-        '@type': 'Service',
-        name: 'Bags & Special Items',
-        description: 'Promotional products with identity. Eco-friendly on demand.',
-        provider: {
-          '@type': 'LocalBusiness',
-          name: siteConfig.business.name,
-        },
-      },
-    ],
+    })),
   };
 
   const portfolioGallerySchema = {

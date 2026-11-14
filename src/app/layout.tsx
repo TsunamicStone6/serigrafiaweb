@@ -65,13 +65,13 @@ export const metadata: Metadata = {
     url: 'https://calacasprints.com',
     siteName: 'Calacas Prints',
     title: 'Screen Printing & Custom Apparel | Calacas Prints SF',
-    description: 'Professional screen printing and custom apparel in San Francisco.',
+    description: 'Custom screen printing on tees, hoodies, caps and tote bags from the Mission District, San Francisco. No minimum order, fast turnaround.',
     images: [{ url: '/images/og-image.webp', width: 1200, height: 630, alt: 'Calacas Prints' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Screen Printing & Custom Apparel | Calacas Prints SF',
-    description: 'Professional screen printing in San Francisco.',
+    description: 'Custom screen printing on tees, hoodies, caps and totes from the Mission District, San Francisco.',
     images: ['/images/og-image.webp'],
   },
 }
