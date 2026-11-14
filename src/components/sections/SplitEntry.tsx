@@ -1,4 +1,5 @@
 import { siteConfig } from '@/config/site.config';
+import { SmsLink } from '@/components/common/SmsLink';
 
 export function SplitEntry() {
   const phoneNumber = siteConfig.business.phone?.replace(/\D/g, '') || '';
@@ -8,7 +9,7 @@ export function SplitEntry() {
       num: '01',
       title: 'Send your art',
       description: 'Got a logo or design ready? Send it over and we\'ll print it on any product. Quick quote by text.',
-      cta: 'Get a quote via SMS',
+      cta: 'Get a free quote',
       href: `sms:${phoneNumber}?body=${encodeURIComponent("Hi, I have a design ready and want to get a quote for screen printing.")}`,
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -40,24 +41,26 @@ export function SplitEntry() {
         <div className="text-center mb-8 md:mb-12">
           <div className="flex items-center justify-center gap-3 mb-3">
             <span className="block w-5 h-px bg-brand-red" />
-            <span className="text-[9px] font-bold text-brand-muted uppercase tracking-[0.45em]">Choose your path</span>
+            <span className="text-[11px] font-bold text-brand-muted uppercase tracking-[0.45em]">Choose your path</span>
             <span className="block w-5 h-px bg-brand-red" />
           </div>
           <h2 className="text-[clamp(32px,5vw,64px)] font-black uppercase tracking-tightest text-brand-light">
-            Which path?
+            Start your custom print order
           </h2>
         </div>
 
         {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 border border-white/[0.07]">
-          {paths.map((path, i) => (
-            <a
+          {paths.map((path, i) => {
+            const Tag = path.href.startsWith('sms:') ? SmsLink : 'a'
+            return (
+            <Tag
               key={i}
               href={path.href}
               className={`group flex flex-col gap-4 md:gap-5 p-8 md:p-14 no-underline text-inherit transition-colors duration-300 hover:bg-brand-red/[0.04]
                 ${i === 0 ? 'border-b md:border-b-0 md:border-r border-white/[0.07]' : ''}`}
             >
-              <span className="text-[10px] font-bold text-brand-muted tracking-[0.35em]">{path.num}</span>
+              <span className="text-[11px] font-bold text-brand-muted tracking-[0.35em]">{path.num}</span>
 
               <div className="w-11 h-11 border border-white/15 flex items-center justify-center text-brand-red transition-all duration-200 group-hover:border-brand-red group-hover:scale-105">
                 {path.icon}
@@ -71,11 +74,12 @@ export function SplitEntry() {
                 {path.description}
               </p>
 
-              <div className="mt-2 md:mt-auto flex items-center gap-3 text-[10px] font-black text-brand-light uppercase tracking-[0.2em] transition-all duration-200 group-hover:gap-5 group-hover:text-brand-red">
+              <div className="mt-2 md:mt-auto flex items-center gap-3 text-[11px] font-black text-brand-light uppercase tracking-[0.2em] transition-all duration-200 group-hover:gap-5 group-hover:text-brand-red">
                 {path.cta} <span>→</span>
               </div>
-            </a>
-          ))}
+            </Tag>
+            )
+          })}
         </div>
 
       </div>

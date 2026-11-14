@@ -123,3 +123,11 @@ body {
   border-radius: 50%;
   animation: pulse-dot 2s ease infinite;
 }
+
+/* ── Contacto: sms: solo funciona en dispositivos táctiles ── */
+@media (hover: none) and (pointer: coarse) {
+  .only-fine { display: none !important; }
+}
+@media not all and (hover: none) and (pointer: coarse) {
+  .only-touch { display: none !important; }
+}

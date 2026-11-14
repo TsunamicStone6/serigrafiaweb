@@ -32,7 +32,7 @@ export function Header({ phone, navigation, logo, brandName }: HeaderProps) {
             <span className="text-[16px] md:text-[18px] font-black text-brand-light uppercase tracking-[0.08em] group-hover:text-brand-red transition-colors duration-200">
               Calacas
             </span>
-            <span className="text-[9px] font-bold text-brand-muted uppercase tracking-[0.3em] mt-[2px]">
+            <span className="text-[11px] font-bold text-brand-muted uppercase tracking-[0.3em] mt-[2px]">
               Screen Printing
             </span>
           </div>
@@ -44,7 +44,7 @@ export function Header({ phone, navigation, logo, brandName }: HeaderProps) {
             <a
               key={item.label}
               href={item.href}
-              className="text-[10px] font-bold text-brand-gray uppercase tracking-[0.18em] hover:text-brand-light transition-colors duration-200 relative
+              className="text-[11px] font-bold text-brand-gray uppercase tracking-[0.18em] hover:text-brand-light transition-colors duration-200 relative
                 after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-px after:bg-brand-red after:transition-all after:duration-300
                 hover:after:w-full"
             >
@@ -56,13 +56,13 @@ export function Header({ phone, navigation, logo, brandName }: HeaderProps) {
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-5">
           <div className="flex flex-col items-end leading-none">
-            <span className="text-[9px] font-bold text-brand-gray uppercase tracking-[0.25em]">Mission District</span>
-            <span className="text-[9px] font-semibold text-brand-gray uppercase tracking-[0.15em] mt-[3px]">San Francisco, CA</span>
+            <span className="text-[11px] font-bold text-brand-gray uppercase tracking-[0.25em]">Mission District</span>
+            <span className="text-[11px] font-semibold text-brand-gray uppercase tracking-[0.15em] mt-[3px]">San Francisco, CA</span>
           </div>
           <div className="w-px h-7 bg-white/[0.1]" />
           <a
             href={`tel:${phone}`}
-            className="flex items-center gap-2 px-5 py-2.5 bg-brand-red text-white text-[10px] font-black uppercase tracking-[0.18em] hover:bg-brand-hover transition-colors whitespace-nowrap"
+            className="flex items-center gap-2 px-5 py-2.5 bg-brand-red text-white text-[11px] font-black uppercase tracking-[0.18em] hover:bg-brand-hover transition-colors whitespace-nowrap"
           >
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.29 6.29l1.28-1.28a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
@@ -74,7 +74,7 @@ export function Header({ phone, navigation, logo, brandName }: HeaderProps) {
         {/* Mobile toggle */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden text-brand-light p-1.5 hover:text-brand-red transition-colors"
+          className="md:hidden text-brand-light w-11 h-11 -mr-2 flex items-center justify-center hover:text-brand-red transition-colors"
           aria-label="Menu"
         >
           {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -97,7 +97,7 @@ export function Header({ phone, navigation, logo, brandName }: HeaderProps) {
             ))}
             <a
               href={`tel:${phone}`}
-              className="mt-4 flex items-center justify-center gap-2 px-6 py-4 bg-brand-red text-white text-[11px] font-black uppercase tracking-[0.2em] hover:bg-brand-hover transition-colors"
+              className="mt-4 min-h-[48px] flex items-center justify-center gap-2 px-6 py-4 bg-brand-red text-white text-[11px] font-black uppercase tracking-[0.2em] hover:bg-brand-hover transition-colors"
             >
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.29 6.29l1.28-1.28a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
@@ -106,7 +106,7 @@ export function Header({ phone, navigation, logo, brandName }: HeaderProps) {
             </a>
             <a
               href={`sms:${phoneNumber}?body=${encodeURIComponent("Hi, I'm interested in your screen printing services.")}`}
-              className="flex items-center justify-center gap-2 px-6 py-3 bg-transparent border border-white/15 text-brand-light text-[11px] font-black uppercase tracking-[0.2em] hover:border-brand-red transition-colors"
+              className="min-h-[48px] flex items-center justify-center gap-2 px-6 py-3 bg-transparent border border-white/15 text-brand-light text-[11px] font-black uppercase tracking-[0.2em] hover:border-brand-red transition-colors"
             >
               Send SMS
             </a>

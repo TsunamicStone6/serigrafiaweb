@@ -1,6 +1,7 @@
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { Marquee } from '@/components/common/Marquee'
+import { MobileCtaBar } from '@/components/common/MobileCtaBar'
 import { client } from '@/sanity/client'
 import { SITE_SETTINGS_QUERY } from '@/sanity/queries'
 import { siteConfig } from '@/config/site.config'
@@ -44,6 +45,9 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
         facebook={facebook}
         twitter={twitter}
       />
+      {/* Espacio para que la barra fija no tape el final del footer en celular */}
+      <div className="h-[72px] md:hidden" aria-hidden="true" />
+      <MobileCtaBar phone={phone} />
     </>
   )
 }

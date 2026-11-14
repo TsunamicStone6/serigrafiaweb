@@ -1,15 +1,7 @@
 'use client'
 
-import dynamic from 'next/dynamic'
+import { ProductsShowcase } from '@/components/sections/ProductsShowcase'
 import type { PortfolioItem } from '@/types/sanity'
-
-const ProductsShowcase = dynamic(
-  () =>
-    import('@/components/sections/ProductsShowcase').then((m) => ({
-      default: m.ProductsShowcase,
-    })),
-  { ssr: false, loading: () => <div className="min-h-[40vh] bg-ink" /> }
-)
 
 type ProductsShowcaseClientProps = {
   portfolio: PortfolioItem[] | Array<{

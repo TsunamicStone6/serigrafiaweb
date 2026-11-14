@@ -53,3 +53,16 @@ export const COMING_SOON_QUERY = groq`
     order,
   }
 `
+
+export const TESTIMONIALS_QUERY = groq`
+  *[_type == "testimonial"] | order(order asc) {
+    _id,
+    author,
+    quote,
+    rating,
+    source,
+    sourceUrl,
+    service,
+    order,
+  }
+`

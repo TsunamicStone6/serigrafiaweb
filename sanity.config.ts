@@ -31,6 +31,8 @@ export default defineConfig({
             S.documentTypeListItem('portfolioItem').title('🎨 Portfolio / Products'),
             // Coming Soon list
             S.documentTypeListItem('comingSoonItem').title('🚀 Coming Soon'),
+            // Customer reviews
+            S.documentTypeListItem('testimonial').title('⭐ Customer Reviews'),
           ]),
     }),
   ],

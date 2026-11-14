@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import { X, ChevronLeft, ChevronRight, MessageCircle } from 'lucide-react'
 import { urlForImage } from '@/sanity/image'
+import { SmsLink } from '@/components/common/SmsLink'
 
 type ComingSoonDrop = {
   _id: string
@@ -42,7 +43,7 @@ export function ComingSoon({ drops, phone }: ComingSoonProps) {
 
   return (
     <section
-      id="shop"
+      id="products"
       aria-label="Shop — Salsa collection tees"
       className="bg-ink py-14 md:py-20 border-b border-white/[0.07]"
     >
@@ -53,7 +54,7 @@ export function ComingSoon({ drops, phone }: ComingSoonProps) {
           <div>
             <div className="flex items-center gap-3 mb-3">
               <span className="block w-5 h-px bg-brand-red" />
-              <span className="text-[9px] font-bold text-brand-muted uppercase tracking-[0.45em]">
+              <span className="text-[11px] font-bold text-brand-muted uppercase tracking-[0.45em]">
                 Available now
               </span>
             </div>
@@ -96,19 +97,19 @@ export function ComingSoon({ drops, phone }: ComingSoonProps) {
 
               {/* Price badge */}
               <div className="absolute top-2.5 right-2.5 bg-brand-red px-2 py-[3px] z-10">
-                <span className="text-[10px] font-black text-white">${PRICE}</span>
+                <span className="text-[11px] font-black text-white">${PRICE}</span>
               </div>
 
               {/* Design name */}
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-ink/90 to-transparent px-4 py-3 z-10">
-                <span className="text-[10px] font-black text-brand-light uppercase tracking-[0.15em]">
+                <span className="text-[11px] font-black text-brand-light uppercase tracking-[0.15em]">
                   {item.title}
                 </span>
               </div>
 
               {/* Hover overlay */}
               <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/50 transition-all duration-300 flex items-center justify-center z-10">
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-[10px] font-black text-white uppercase tracking-[0.2em] border border-white/60 px-4 py-2">
+                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-[11px] font-black text-white uppercase tracking-[0.2em] border border-white/60 px-4 py-2">
                   View
                 </span>
               </div>
@@ -120,19 +121,20 @@ export function ComingSoon({ drops, phone }: ComingSoonProps) {
         <div className="mt-6 md:mt-8 flex flex-col md:flex-row items-center justify-between gap-4 border border-white/[0.07] bg-card px-6 md:px-10 py-5 md:py-6">
           <div>
             <p className="text-[14px] md:text-[16px] font-black uppercase text-brand-light">
-              Order by text
+              Order by text or phone
             </p>
             <p className="text-[12px] text-brand-gray mt-1 leading-[1.5]">
               T-shirts are printed once the order is placed. We&apos;ll confirm your size and ship within 2 weeks.
             </p>
           </div>
-          <a
+          <SmsLink
             href={smsLink}
             className="w-full md:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-brand-red text-white text-[11px] font-black uppercase tracking-[0.18em] hover:bg-brand-hover transition-colors flex-shrink-0"
           >
             <MessageCircle className="w-4 h-4" />
-            Text to order
-          </a>
+            <span className="only-touch">Text to order</span>
+            <span className="only-fine">Order by phone or email</span>
+          </SmsLink>
         </div>
 
       </div>

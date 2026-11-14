@@ -3,12 +3,13 @@ import { Hero }        from '@/components/sections/Hero'
 import { SplitEntry }  from '@/components/sections/SplitEntry'
 import { About }       from '@/components/sections/About'
 import { Contact }     from '@/components/sections/Contact'
+import { Reviews }     from '@/components/sections/Reviews'
 import { ComingSoon }  from '@/components/sections/ComingSoon'
 import { ProductsShowcaseClient } from '@/components/ProductsShowcaseClient'
 import { client }     from '@/sanity/client'
-import { SITE_SETTINGS_QUERY, SERVICES_QUERY, PORTFOLIO_QUERY, COMING_SOON_QUERY } from '@/sanity/queries'
+import { SITE_SETTINGS_QUERY, SERVICES_QUERY, PORTFOLIO_QUERY, COMING_SOON_QUERY, TESTIMONIALS_QUERY } from '@/sanity/queries'
 import { siteConfig } from '@/config/site.config'
-import type { SiteSettings, Service, PortfolioItem, ComingSoonItem } from '@/types/sanity'
+import type { SiteSettings, Service, PortfolioItem, ComingSoonItem, Testimonial } from '@/types/sanity'
 
 const Services = dynamic(
   () => import('@/components/sections/Services').then((m) => ({ default: m.Services })),
@@ -20,11 +21,12 @@ export default async function Home() {
   const isDev = process.env.NODE_ENV === 'development'
   const revalidate = isDev ? 0 : 60
 
-  const [settings, services, portfolio, comingSoon] = await Promise.all([
+  const [settings, services, portfolio, comingSoon, testimonials] = await Promise.all([
     client.fetch<SiteSettings | null>(SITE_SETTINGS_QUERY, {}, { next: { revalidate } }),
     client.fetch<Service[]>(SERVICES_QUERY, {}, { next: { revalidate } }),
     client.fetch<PortfolioItem[]>(PORTFOLIO_QUERY, {}, { next: { revalidate } }),
     client.fetch<ComingSoonItem[]>(COMING_SOON_QUERY, {}, { next: { revalidate } }),
+    client.fetch<Testimonial[]>(TESTIMONIALS_QUERY, {}, { next: { revalidate } }),
   ])
 
   // Fallbacks a siteConfig si Sanity no tiene datos aún
@@ -76,12 +78,13 @@ export default async function Home() {
   return (
     <>
       <Hero {...heroData} />
-      <ComingSoon drops={comingSoonData} phone={phone} />
       <Services services={servicesData} phone={phone} />
       <SplitEntry />
+      <ComingSoon drops={comingSoonData} phone={phone} />
       <ProductsShowcaseClient portfolio={portfolioData} phone={phone} />
       <About {...aboutData} />
-      <Contact phone={phone} email={email} />
+      <Reviews reviews={testimonials ?? []} />
+      <Contact phone={phone} email={email} address={address} />
     </>
   )
 }

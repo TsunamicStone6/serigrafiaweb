@@ -2,6 +2,11 @@ import { siteConfig } from '@/config/site.config';
 
 const BASE_URL = 'https://calacasprints.com';
 
+// Escapa '<' para que ningún dato (p. ej. de Sanity) pueda cerrar el <script>
+function safeJson(data: unknown) {
+  return JSON.stringify(data).replace(/</g, '\\u003c')
+}
+
 export function JsonLdScripts() {
   const localBusinessSchema = {
     '@context': 'https://schema.org',
@@ -113,25 +118,25 @@ export function JsonLdScripts() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(localBusinessSchema),
+          __html: safeJson(localBusinessSchema),
         }}
       />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(organizationSchema),
+          __html: safeJson(organizationSchema),
         }}
       />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(servicesSchema),
+          __html: safeJson(servicesSchema),
         }}
       />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(portfolioGallerySchema),
+          __html: safeJson(portfolioGallerySchema),
         }}
       />
     </>

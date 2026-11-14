@@ -4,5 +4,6 @@ export const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
   apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2024-01-01',
-  useCdn: true,
+  // En desarrollo leemos directo de la API (sin caché del CDN) para ver los cambios al instante
+  useCdn: process.env.NODE_ENV === 'production',
 })

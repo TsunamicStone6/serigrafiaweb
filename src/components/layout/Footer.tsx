@@ -55,15 +55,15 @@ export function Footer({ brandName, description, phone, email, address, instagra
 
           {/* Contact */}
           <div>
-            <h4 className="text-[10px] font-bold text-brand-light uppercase tracking-[0.35em] mb-4">Contact</h4>
+            <h4 className="text-[11px] font-bold text-brand-light uppercase tracking-[0.35em] mb-4">Contact</h4>
             <ul className="flex flex-col gap-2.5">
               <li>
-                <a href={`tel:${phone}`} className="text-[12px] text-brand-gray hover:text-brand-red transition-colors">
+                <a href={`tel:${phone}`} className="inline-flex items-center min-h-[44px] md:min-h-0 text-[12px] text-brand-gray hover:text-brand-red transition-colors">
                   {phone}
                 </a>
               </li>
               <li>
-                <a href={`mailto:${email}`} className="text-[12px] text-brand-gray hover:text-brand-red transition-colors">
+                <a href={`mailto:${email}`} className="inline-flex items-center min-h-[44px] md:min-h-0 text-[12px] text-brand-gray hover:text-brand-red transition-colors">
                   {email}
                 </a>
               </li>
@@ -73,7 +73,7 @@ export function Footer({ brandName, description, phone, email, address, instagra
 
           {/* Social */}
           <div>
-            <h4 className="text-[10px] font-bold text-brand-light uppercase tracking-[0.35em] mb-4">Follow us</h4>
+            <h4 className="text-[11px] font-bold text-brand-light uppercase tracking-[0.35em] mb-4">Follow us</h4>
             <div className="flex gap-3">
               {socials.map((s) => (
                 <a
@@ -82,7 +82,7 @@ export function Footer({ brandName, description, phone, email, address, instagra
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="w-10 h-10 md:w-9 md:h-9 border border-white/10 flex items-center justify-center text-brand-gray hover:border-brand-red hover:text-brand-red transition-all duration-200"
+                  className="w-11 h-11 md:w-9 md:h-9 border border-white/10 flex items-center justify-center text-brand-gray hover:border-brand-red hover:text-brand-red transition-all duration-200"
                 >
                   {s.icon}
                 </a>
@@ -93,10 +93,10 @@ export function Footer({ brandName, description, phone, email, address, instagra
 
         {/* Bottom */}
         <div className="border-t border-white/[0.06] pt-5 flex flex-col md:flex-row items-center justify-between gap-2">
-          <p className="text-[10px] text-brand-gray uppercase tracking-[0.2em]">
+          <p className="text-[11px] text-brand-gray uppercase tracking-[0.2em]">
             © {year} {brandName}. All rights reserved.
           </p>
-          <p className="text-[10px] text-brand-gray uppercase tracking-[0.2em]">
+          <p className="text-[11px] text-brand-gray uppercase tracking-[0.2em]">
             Screen Printing Since 2012 · SF
           </p>
         </div>

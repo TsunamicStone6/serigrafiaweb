@@ -61,3 +61,14 @@ export type ComingSoonItem = {
   imageUrl?: string
   order: number
 }
+
+export type Testimonial = {
+  _id: string
+  author: string
+  quote: string
+  rating: number
+  source?: string
+  sourceUrl?: string
+  service?: string
+  order: number
+}

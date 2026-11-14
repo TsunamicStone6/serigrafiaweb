@@ -53,7 +53,7 @@ export function About({ title, description, story, aboutImage, localImage, found
             </div>
             {/* EST badge */}
             <div className="absolute bottom-0 right-0 w-[96px] h-[96px] md:w-[108px] md:h-[108px] bg-brand-red border-4 border-ink flex flex-col items-center justify-center z-10 hover:scale-105 transition-transform duration-300 cursor-default">
-              <span className="text-[8px] font-bold text-white/90 tracking-[0.3em] uppercase">EST.</span>
+              <span className="text-[10px] font-bold text-white/90 tracking-[0.3em] uppercase">EST.</span>
               <span className="text-[32px] md:text-[38px] font-black text-white leading-none">{founded}</span>
             </div>
           </div>
@@ -62,7 +62,7 @@ export function About({ title, description, story, aboutImage, localImage, found
           <div className="order-1 lg:order-2">
             <div className="flex items-center gap-3 mb-3">
               <span className="block w-5 h-px bg-brand-red" />
-              <span className="text-[9px] font-bold text-brand-muted uppercase tracking-[0.45em]">Our Story</span>
+              <span className="text-[11px] font-bold text-brand-muted uppercase tracking-[0.45em]">Our Story</span>
             </div>
 
             <h2 className="text-[clamp(30px,4vw,54px)] font-black uppercase tracking-tightest text-brand-light leading-none mb-5">
@@ -78,7 +78,7 @@ export function About({ title, description, story, aboutImage, localImage, found
 
             {/* Address + Contact */}
             <div className="border border-white/[0.07] border-l-[3px] border-l-brand-red pl-4 md:pl-5 pr-4 py-4 md:py-5 flex flex-col gap-3">
-              <p className="text-[9px] font-bold text-brand-muted uppercase tracking-[0.4em] mb-1">Visit Us</p>
+              <p className="text-[11px] font-bold text-brand-muted uppercase tracking-[0.4em] mb-1">Visit Us</p>
               <div className="flex items-start gap-3">
                 <span className="text-brand-red mt-[2px] text-sm">📍</span>
                 <span className="text-[12px] font-semibold text-brand-light leading-[1.55]">{address}</span>
@@ -94,7 +94,7 @@ export function About({ title, description, story, aboutImage, localImage, found
             {/* Business Hours */}
             {businessHours && businessHours.length > 0 && (
               <div className="mt-4 border border-white/[0.07] border-l-[3px] border-l-brand-red pl-4 md:pl-5 pr-4 py-4 md:py-5">
-                <p className="text-[9px] font-bold text-brand-muted uppercase tracking-[0.4em] mb-3">Hours</p>
+                <p className="text-[11px] font-bold text-brand-muted uppercase tracking-[0.4em] mb-3">Hours</p>
                 <div className="grid grid-cols-2 gap-x-4 gap-y-1.5">
                   {businessHours.map((h, i) => (
                     <div key={i} className="flex items-center justify-between gap-2">
